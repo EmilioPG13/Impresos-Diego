@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import Header from './components/Header'
 
 function App() {
 
   return (
-    <DarkModeProvider>
-      <h1>Hello, world!</h1>
-    </DarkModeProvider>
+    // <DarkModeProvider>
+      <Header />
+    // </DarkModeProvider>
   )
 }
 
