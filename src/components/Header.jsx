@@ -27,13 +27,13 @@ function Header() {
                 <section>
                     <div className='flex justify-between'>
                         <div className='flex justify-end space-x-4 m-5'>
-                            <a href='' className='text-lg'>
+                            <a href='https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1' className='text-lg'>
                                 <img src={tiktok} className="w-9 h-9" />
                             </a>
-                            <a href='' className='text-lg'>
+                            <a href='https://www.instagram.com/impresosdiego?igsh=MXZpcnM1aTJoNTNpMQ==' className='text-lg'>
                                 <img src={instagram} className="w-9 h-9" />
                             </a>
-                            <a href='' className='text-lg'>
+                            <a href='https://www.facebook.com/profile.php?id=61560933800832&mibextid=LQQJ4d' className='text-lg'>
                                 <img src={facebook} className="w-9 h-9" />
                             </a>
                         </div>
