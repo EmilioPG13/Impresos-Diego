@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+//Images and icons
 import logo from '../images/ID-logo.png';
 import tiktok from '../images/tiktok.png';
 import instagram from '../images/instagram.png';
@@ -8,12 +8,18 @@ import search from '../images/search-icon.png';
 
 
 function Header() {
-    // State to manage the visibility of the search bar
+    // States to manage search bar, menu focus
     const [showSearch, setShowSearch] = useState(false);
+    const [selectedLink, setSelectedLink] = useState('Inicio'); // [1
 
     // Function to toggle the search bar
     const toggleSearchBar = () => {
         setShowSearch(!showSearch);
+    };
+
+    // Function to update the selected link
+    const handleLinkClick = (linkName) => {
+        setSelectedLink(linkName);
     };
 
     return (
@@ -23,13 +29,25 @@ function Header() {
                 {/* Left side of the header */}
                 <div className='flex mb-1'>
                     <a><img src={logo} className="w-20 h-20 m-3" alt="Logo" /></a>
-                    <ul className='display: flex m-9 ml-16 gap-10'>
-                        <li><a href="#" className="text-sky text-base">Inicio</a></li>
-                        <li><a href="#" className="text-sky text-base">Nosotros</a></li>
-                        <li><a href="#" className="text-sky text-base">Servicios</a></li>
-                        <li><a href="#" className="text-sky text-base">Galeria</a></li>
-                        <li><a href="#" className="text-sky text-base">Contacto</a></li>
-                        <li><a href="#" className="text-sky text-base">Preguntas frecuentes</a></li>
+                    <ul className='flex m-9 ml-16 gap-10'>
+                        <li>
+                            <a href="#" className={`text-sky text-base ${selectedLink === 'Inicio' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Inicio')}>Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#" className={`text-sky text-base ${selectedLink === 'Nosotros' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Nosotros')}>Nosotros</a>
+                        </li>
+                        <li>
+                            <a href="#" className={`text-sky text-base ${selectedLink === 'Servicios' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Servicios')}>Servicios</a>
+                        </li>
+                        <li>
+                            <a href="#" className={`text-sky text-base ${selectedLink === 'Galeria' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Galeria')}>Galeria</a>
+                        </li>
+                        <li>
+                            <a href="#" className={`text-sky text-base ${selectedLink === 'Contacto' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Contacto')}>Contacto</a>
+                        </li>
+                        <li>
+                            <a href="#" className={`text-sky text-base ${selectedLink === 'Preguntas frecuentes' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Preguntas frecuentes')}>Preguntas frecuentes</a>
+                        </li>
                     </ul>
                 </div>
 
