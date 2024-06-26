@@ -28,29 +28,33 @@ function Header() {
             <div className='flex justify-between items-center'>
                 {/* Left side of the header */}
                 <div className='flex mb-1'>
-                    <a onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
-                        <img src={logo} className="w-20 h-20 m-3" alt="Logo" />
-                    </a>
-                    <ul className='flex m-9 ml-16 gap-10'>
-                        <li>
-                            <a href="#" className={`text-sky text-base ${selectedLink === 'Inicio' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Inicio')}>Inicio</a>
-                        </li>
-                        <li>
-                            <a href="#" className={`text-sky text-base ${selectedLink === 'Nosotros' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Nosotros')}>Nosotros</a>
-                        </li>
-                        <li>
-                            <a href="#" className={`text-sky text-base ${selectedLink === 'Servicios' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Servicios')}>Servicios</a>
-                        </li>
-                        <li>
-                            <a href="#" className={`text-sky text-base ${selectedLink === 'Galeria' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Galeria')}>Galeria</a>
-                        </li>
-                        <li>
-                            <a href="#" className={`text-sky text-base ${selectedLink === 'Contacto' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Contacto')}>Contacto</a>
-                        </li>
-                        <li>
-                            <a href="#" className={`text-sky text-base ${selectedLink === 'Preguntas frecuentes' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Preguntas frecuentes')}>Preguntas frecuentes</a>
-                        </li>
-                    </ul>
+                    <h1>
+                        <button onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
+                            <img src={logo} className="w-20 h-20 m-3" alt="Logo" />
+                        </button>
+                    </h1>
+                    <nav>
+                        <ul className='flex m-9 ml-16 gap-10'>
+                            <li>
+                                <a href="#" className={`text-sky text-base ${selectedLink === 'Inicio' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Inicio')}>Inicio</a>
+                            </li>
+                            <li>
+                                <a href="#" className={`text-sky text-base ${selectedLink === 'Nosotros' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Nosotros')}>Nosotros</a>
+                            </li>
+                            <li>
+                                <a href="#" className={`text-sky text-base ${selectedLink === 'Servicios' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Servicios')}>Servicios</a>
+                            </li>
+                            <li>
+                                <a href="#" className={`text-sky text-base ${selectedLink === 'Galeria' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Galeria')}>Galeria</a>
+                            </li>
+                            <li>
+                                <a href="#" className={`text-sky text-base ${selectedLink === 'Contacto' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Contacto')}>Contacto</a>
+                            </li>
+                            <li>
+                                <a href="#" className={`text-sky text-base ${selectedLink === 'Preguntas frecuentes' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Preguntas frecuentes')}>Preguntas frecuentes</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
 
                 {/* Right side of the header */}
@@ -75,9 +79,9 @@ function Header() {
                         </div>
 
                         <div className='flex'>
-                            <a onClick={toggleSearchBar}>
-                                <img src={search} className="w-7 h-7 my-6 mr-6 cursor-pointer" />
-                            </a>
+                            <button onClick={toggleSearchBar}>
+                                <img src={search} className="w-7 h-7 mb-3 mr-6 cursor-pointer" />
+                            </button>
 
                             {/* Render search bar conditionally with transition*/}
                             <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showSearch ? 'max-w-xs' : 'max-w-0'} ml-0 mr-4`}>
