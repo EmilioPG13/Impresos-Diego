@@ -28,7 +28,9 @@ function Header() {
             <div className='flex justify-between items-center w-full'>
                 {/* Left side of the header */}
                 <div className='flex mb-1'>
-                    <a><img src={logo} className="w-20 h-20 m-3" alt="Logo" /></a>
+                    <a onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
+                        <img src={logo} className="w-20 h-20 m-3" alt="Logo" />
+                    </a>
                     <ul className='flex m-9 ml-16 gap-10'>
                         <li>
                             <a href="#" className={`text-sky text-base ${selectedLink === 'Inicio' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Inicio')}>Inicio</a>
