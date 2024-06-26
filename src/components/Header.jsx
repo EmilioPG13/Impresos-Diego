@@ -14,7 +14,7 @@ function Header() {
 
     // Function to toggle the search bar
     const toggleSearchBar = () => {
-        setShowSearch(!showSearch);
+        setShowSearch(prevShowSearch => !prevShowSearch);
     };
 
     // Function to update the selected link
@@ -25,7 +25,7 @@ function Header() {
     return (
         <header className="w-full relative border-t-4 border-blue-300">
             {/* Parent container for left and right sides */}
-            <div className='flex justify-between items-center w-full'>
+            <div className='flex justify-between items-center'>
                 {/* Left side of the header */}
                 <div className='flex mb-1'>
                     <a onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
@@ -80,8 +80,8 @@ function Header() {
                             </a>
 
                             {/* Render search bar conditionally with transition*/}
-                            <div className={`transition-all duration-500 ease-in-out ${showSearch ? 'w-48 ml-0 mr-4' : 'w-0'}`}>
-                                <input type='text' className={`p-2 my-4 border rounded-full focus:outline-none ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
+                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showSearch ? 'max-w-xs' : 'max-w-0'} ml-0 mr-4`}>
+                                <input type='text' className={`p-2 my-4 border rounded-full focus:outline-none w-full opacity-0 transition-opacity duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
                             </div>
                         </div>
                     </div>
