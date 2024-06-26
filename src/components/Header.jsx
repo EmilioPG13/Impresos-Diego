@@ -23,7 +23,7 @@ function Header() {
     };
 
     return (
-        <header className="w-full relative border-t-8 border-blue-300">
+        <header className="w-full relative border-t-4 border-blue-300">
             {/* Parent container for left and right sides */}
             <div className='flex justify-between items-center w-full'>
                 {/* Left side of the header */}
