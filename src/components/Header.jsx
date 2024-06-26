@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import logo from '../images/ID-logo.png';
 import tiktok from '../images/tiktok.png';
 import instagram from '../images/instagram.png';
@@ -6,6 +8,14 @@ import search from '../images/search-icon.png';
 
 
 function Header() {
+    // State to manage the visibility of the search bar
+    const [showSearch, setShowSearch] = useState(false);
+
+    // Function to toggle the search bar
+    const toggleSearchBar = () => {
+        setShowSearch(!showSearch);
+    };
+
     return (
         <header className="w-full relative border-t-8 border-blue-300">
             {/* Parent container for left and right sides */}
@@ -28,13 +38,13 @@ function Header() {
                     <div className='flex justify-between'>
                         <div className='flex justify-end space-x-4 m-5'>
                             <a href='https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1' className='text-lg'>
-                                <img src={tiktok} className="w-9 h-9" />
+                                <img src={tiktok} className="w-9 h-9 hover:scale-105 hover:bg-fuchsia-400 rounded-full" />
                             </a>
                             <a href='https://www.instagram.com/impresosdiego?igsh=MXZpcnM1aTJoNTNpMQ==' className='text-lg'>
-                                <img src={instagram} className="w-9 h-9" />
+                                <img src={instagram} className="w-9 h-9 hover:scale-105 hover:bg-rose-400 rounded-full" />
                             </a>
                             <a href='https://www.facebook.com/profile.php?id=61560933800832&mibextid=LQQJ4d' className='text-lg'>
-                                <img src={facebook} className="w-9 h-9" />
+                                <img src={facebook} className="w-9 h-9 hover:scale-105 hover:bg-blue-400 rounded-full" />
                             </a>
                         </div>
 
@@ -44,10 +54,15 @@ function Header() {
                             <p className='text-sm'>222 248 8993</p>
                         </div>
 
-                        <div>
-                            <a className='flex justify-end'>
-                                <img src={search} className="w-7 h-7 my-5 mr-9" />
+                        <div className='flex'>
+                            <a onClick={toggleSearchBar}>
+                                <img src={search} className="w-7 h-7 my-6 mr-6 cursor-pointer" />
                             </a>
+
+                            {/* Render search bar conditionally with transition*/}
+                            <div className={`transition-all duration-500 ease-in-out ${showSearch ? 'w-48 ml-0 mr-4' : 'w-0'}`}>
+                                <input type='text' className={`p-2 my-4 border rounded-full focus:outline-none ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
+                            </div>
                         </div>
                     </div>
                 </section>
