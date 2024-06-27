@@ -5,12 +5,15 @@ import tiktok from '../images/tiktok.png';
 import instagram from '../images/instagram.png';
 import facebook from '../images/facebook.png';
 import search from '../images/search-icon.png';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 
 
 function Header() {
-    // States to manage search bar, menu focus
+    // States to manage search bar, menu focus, hamburger menu
     const [showSearch, setShowSearch] = useState(false);
-    const [selectedLink, setSelectedLink] = useState('Inicio'); // [1
+    const [selectedLink, setSelectedLink] = useState('Inicio');
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
     // Function to toggle the search bar
     const toggleSearchBar = () => {
@@ -22,6 +25,11 @@ function Header() {
         setSelectedLink(linkName);
     };
 
+    // Function to toggle the hamburger menu
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <header className="w-full relative border-t-4 border-blue-300">
             {/* Parent container for left and right sides */}
@@ -30,10 +38,17 @@ function Header() {
                 <div className='flex mb-1'>
                     <h1>
                         <button onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
-                            <img src={logo} className="w-20 h-20 m-3 lg:w-15 lg:-h-15" alt="Logo" />
+                            <img src={logo} className="w-20 h-20 m-3 ml-1 lg:w-15 lg:-h-15" alt="Logo" />
                         </button>
                     </h1>
-                    <nav>
+
+                    {/* Hamburger menu - shown only on small screens up to the lg breakpoint */}
+                    <button className='lg:hidden ml-5 mb-2' onClick={toggleMenu}>
+                        <Bars3Icon className='w-8 h-8' />
+                    </button>
+
+                    {/* Navigation Menu - hidden on small screens, visible on lg screens and up */}
+                    <nav className='hidden lg:flex'>
                         <ul className='flex m-9 ml-10 gap-10 lg:gap-5 lg:ml-3 xl:gap-10 xl:ml-10 mx-auto'>
                             <li>
                                 <a href="#" className={`text-sky text-base ${selectedLink === 'Inicio' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Inicio')}>Inicio</a>
@@ -54,8 +69,8 @@ function Header() {
                     </nav>
                 </div>
 
-                {/* Right side of the header */}
-                <section>
+                {/* Right side of the header - hidden on small screens */}
+                <section className='hidden md:block'>
                     <div className='flex justify-between mb-1'>
                         <div className='flex justify-end space-x-4 m-5'>
                             <a href='https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1' className='text-lg'>
@@ -82,11 +97,18 @@ function Header() {
 
                             {/* Render search bar conditionally with transition*/}
                             <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showSearch ? 'max-w-xs' : 'max-w-0'} ml-0 mr-4`}>
-                                <input type='text' className={`p-2 my-4 border rounded-full focus:outline-none w-full opacity-0 transition-opacity duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
+                                <input type='text' className={`p-2 my-3 border rounded-full focus:outline-none w-full opacity-0 transition-opacity duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
                             </div>
                         </div>
                     </div>
                 </section>
+            </div>
+
+            {/* Mobile Menu - shown when isMenuOpen is true */}
+            <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
+                <ul>
+
+                </ul>
             </div>
         </header>
     );
