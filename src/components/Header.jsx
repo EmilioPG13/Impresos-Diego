@@ -104,35 +104,51 @@ function Header() {
             </div>
 
             {/* Mobile Sliding Menu - shown when isMenuOpen is true */}
-            <div className={`fixed top-0 left-0 lg:hidden h-full w-1/4 border-t-4 border-blue-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} transform transition-transform duration-300 ease-in-out bg-gray-100 z-50`}>
+            {isMenuOpen && (
+                <div className="fixed inset-0 bg-slate-400 bg-opacity-80 z-40"></div>
+            )}
+            <div className={`fixed top-0 left-0 lg:hidden h-full w-2/4 border-t-4 border-blue-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} transform transition-transform duration-300 ease-in-out bg-gray-100 z-50`}>
                 <div className='flex justify-center mt-6'>
                     <button>
                         <img src={logo} className="h-20 w-20 " alt="Logo" />
                     </button>
-                    </div>
-                    <div className='absolute top-0 right-0'>
-                        <button onClick={toggleMenu} className='p-2'>
-                            <XMarkIcon className="h-6 w-6" />
-                        </button>
+                </div>
+                <div className='absolute top-0 right-0'>
+                    <button onClick={toggleMenu} className='p-2'>
+                        <XMarkIcon className="h-6 w-6" />
+                    </button>
                 </div>
                 <div className='my-4 mt-8 mx-4 border-t border-blue-400'></div>
-                <ul className='flex flex-col items-center space-y-5 mt-11'>
+                <ul className='flex flex-col items-center space-y-5 mt-9'>
                     <li>
-                        <a href="#" className={`text-sky text-base ${selectedLink === 'Inicio' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Inicio')}>Inicio</a>
+                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Inicio' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Inicio')}>Inicio</a>
                     </li>
                     <li>
-                        <a href="#" className={`text-sky text-base ${selectedLink === 'Servicios' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Servicios')}>Servicios</a>
+                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Servicios' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Servicios')}>Servicios</a>
                     </li>
                     <li>
-                        <a href="#" className={`text-sky text-base ${selectedLink === 'Galeria' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Galeria')}>Galeria</a>
+                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Galeria' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Galeria')}>Galeria</a>
                     </li>
                     <li>
-                        <a href="#" className={`text-sky text-base ${selectedLink === 'Contacto' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Contacto')}>Contacto</a>
+                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Contacto' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Contacto')}>Contacto</a>
                     </li>
                     <li>
-                        <a href="#" className={`text-sky text-base ${selectedLink === 'Preguntas frecuentes' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Preguntas frecuentes')}>FAQ</a>
+                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Preguntas frecuentes' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Preguntas frecuentes')}>FAQ</a>
                     </li>
                 </ul>
+                <div className='my-4 mt-8 mx-4 border-t border-blue-400'></div>
+                <p className='text-sm flex justify-center'>Siguenos en:</p>
+                <div className='flex justify-center space-x-4 m-5'>
+                    <a href='https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1' className='text-lg'>
+                        <img src={tiktok} className="w-7 h-7 hover:scale-105 hover:bg-fuchsia-400 rounded-full" />
+                    </a>
+                    <a href='https://www.instagram.com/impresosdiego?igsh=MXZpcnM1aTJoNTNpMQ==' className='text-lg'>
+                        <img src={instagram} className="w-7 h-7 hover:scale-105 hover:bg-rose-400 rounded-full" />
+                    </a>
+                    <a href='https://www.facebook.com/profile.php?id=61560933800832&mibextid=LQQJ4d' className='text-lg'>
+                        <img src={facebook} className="w-7 h-7 hover:scale-105 hover:bg-blue-400 rounded-full" />
+                    </a>
+                </div>
             </div>
         </header>
     );
