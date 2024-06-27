@@ -4,8 +4,7 @@ import logo from '../images/ID-logo.png';
 import tiktok from '../images/tiktok.png';
 import instagram from '../images/instagram.png';
 import facebook from '../images/facebook.png';
-import search from '../images/search-icon.png';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 
 function Header() {
@@ -92,7 +91,7 @@ function Header() {
 
                         <div className='flex'>
                             <button onClick={toggleSearchBar}>
-                                <img src={search} className="w-7 h-7 mb-3 mr-6 p-0 cursor-pointer" />
+                                <MagnifyingGlassIcon className="w-7 h-7 mb-3 mr-6 p-0 cursor-pointer" />
                             </button>
 
                             {/* Render search bar conditionally with transition*/}
