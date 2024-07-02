@@ -66,9 +66,10 @@ function Header() {
                 </div>
 
                 {/* Right side of the header - hidden on small screens */}
-                <section className='hidden md:block'>
+                <section>
                     <div className='flex justify-between mb-1'>
-                        <div className='flex justify-end space-x-4 m-5'>
+                        {/* Social Media Icons - Correctly hidden on screens smaller than 768px */}
+                        <div className='hidden md:flex justify-end space-x-4 m-5'>
                             <a href='https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1' className='text-lg'>
                                 <img src={tiktok} className="w-7 h-7 hover:scale-105 hover:bg-fuchsia-400 rounded-full" />
                             </a>
@@ -80,24 +81,26 @@ function Header() {
                             </a>
                         </div>
 
-                        <div className='flex flex-col space-y-0 m-2 mr-5 mb-5 border-r-2 border-gray-300 pr-4'>
+                        {/* Contact Info - Correctly hidden on screens smaller than 768px */}
+                        <div className='hidden md:flex flex-col space-y-0 m-2 mr-5 mb-5 border-r-2 border-gray-300 pr-4'>
                             <p className='text-gray-500 text-xs'>Horario de atencion</p>
                             <p className='text-xs'>9:00am a 6:00pm</p>
                             <p className='text-xs'>222 248 8993</p>
                         </div>
 
+                        {/* These elements are visible on all screen sizes */}
                         <div className='flex'>
                             <button onClick={toggleSearchBar}>
                                 <MagnifyingGlassIcon className="w-7 h-7 mb-3 mr-6 p-0 cursor-pointer" />
                             </button>
 
-                            {/* Render search bar conditionally with transition*/}
+                            {/* Render search bar conditionally with transition */}
                             <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showSearch ? 'max-w-xs' : 'max-w-0'} ml-0 mr-4`}>
                                 <input type='text' className={`p-2 my-3 border rounded-full focus:outline-none w-full opacity-0 transition-opacity duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
                             </div>
                         </div>
 
-                        {/* Hamburger menu - shown only on small screens up to the lg breakpoint */}
+                        {/* Hamburger menu - visible on all screen sizes */}
                         <button className='lg:hidden mr-6 mb-2' onClick={toggleMenu}>
                             <Bars3Icon className='w-8 h-8' />
                         </button>
