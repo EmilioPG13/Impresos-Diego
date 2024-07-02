@@ -41,10 +41,7 @@ function Header() {
                         </button>
                     </h1>
 
-                    {/* Hamburger menu - shown only on small screens up to the lg breakpoint */}
-                    <button className='lg:hidden ml-5 mb-2' onClick={toggleMenu}>
-                        <Bars3Icon className='w-8 h-8' />
-                    </button>
+
 
                     {/* Navigation Menu - hidden on small screens, visible on lg screens and up */}
                     <nav className='hidden lg:flex'>
@@ -99,6 +96,11 @@ function Header() {
                                 <input type='text' className={`p-2 my-3 border rounded-full focus:outline-none w-full opacity-0 transition-opacity duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
                             </div>
                         </div>
+
+                        {/* Hamburger menu - shown only on small screens up to the lg breakpoint */}
+                        <button className='lg:hidden mr-6 mb-2' onClick={toggleMenu}>
+                            <Bars3Icon className='w-8 h-8' />
+                        </button>
                     </div>
                 </section>
             </div>
