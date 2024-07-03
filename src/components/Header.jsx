@@ -37,7 +37,7 @@ function Header() {
                 <div className='flex mb-1'>
                     <h1>
                         <button onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
-                            <img src={logo} className="w-20 h-20 m-3 ml-3 lg:w-15 lg:-h-15" alt="Logo" />
+                            <img src={logo} className="w-24 h-24 m-1 ml-3" alt="Logo" />
                         </button>
                     </h1>
 
@@ -45,7 +45,7 @@ function Header() {
 
                     {/* Navigation Menu - hidden on small screens, visible on lg screens and up */}
                     <nav className='hidden lg:flex'>
-                        <ul className='flex m-9 ml-10 gap-10 lg:gap-5 lg:ml-3 xl:gap-10 xl:ml-10 mx-auto'>
+                        <ul className='flex m-9 ml-12 gap-10 lg:gap-5 lg:ml-4 xl:gap-10 xl:ml-10 mx-auto'>
                             <li>
                                 <a href="#" className={`text-sky text-base ${selectedLink === 'Inicio' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Inicio')}>Inicio</a>
                             </li>
@@ -115,7 +115,7 @@ function Header() {
             <div className={`fixed top-0 left-0 lg:hidden h-full w-2/4 border-t-4 border-blue-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} transform transition-transform duration-300 ease-in-out bg-gray-100 z-50`}>
                 <div className='flex justify-center mt-6'>
                     <button>
-                        <img src={logo} className="h-20 w-20 " alt="Logo" />
+                        <img src={logo} className="h-24 w-24 " alt="Logo" />
                     </button>
                 </div>
                 <div className='absolute top-0 right-0'>
