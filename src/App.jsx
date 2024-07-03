@@ -5,7 +5,7 @@ import IntroPage from './components/IntroPage';
 
 function App() {
   return (
-    <div className="bg-stone-100 min-h-screen">
+    <div className="bg-stone-50 min-h-screen">
       {/* <DarkModeProvider> */}
         <Header />
         <LandingPage />
