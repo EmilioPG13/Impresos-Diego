@@ -1,9 +1,9 @@
 import { useState } from 'react';
 //Images and icons
-import logo from '../images/ID-logo.png';
-import tiktok from '../images/tiktok.png';
-import instagram from '../images/instagram.png';
-import facebook from '../images/facebook.png';
+import logo from '../images/icons/ID-logo.png';
+import tiktok from '../images/icons/tiktok.png';
+import instagram from '../images/icons/instagram.png';
+import facebook from '../images/icons/facebook.png';
 import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 

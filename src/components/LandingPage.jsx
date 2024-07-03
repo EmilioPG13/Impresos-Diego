@@ -1,4 +1,4 @@
-import frontpageImg from '../images/frontpage-img.png'; // Adjust the path as necessary
+import frontpageImg from '../images/things/frontpage-img.png'; // Adjust the path as necessary
 
 function LandingPage() {
     return (
