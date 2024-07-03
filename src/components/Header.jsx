@@ -37,7 +37,7 @@ function Header() {
                 <div className='flex mb-1'>
                     <h1>
                         <button onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
-                            <img src={logo} className="w-20 h-20 m-3 ml-1 lg:w-15 lg:-h-15" alt="Logo" />
+                            <img src={logo} className="w-20 h-20 m-3 ml-3 lg:w-15 lg:-h-15" alt="Logo" />
                         </button>
                     </h1>
 
@@ -95,7 +95,7 @@ function Header() {
                             </button>
 
                             {/* Render search bar conditionally with transition */}
-                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showSearch ? 'max-w-xs' : 'max-w-0'} ml-0 mr-4`}>
+                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showSearch ? 'max-w-xs' : 'max-w-0'} ml-0 mr-4 mb-3`}>
                                 <input type='text' className={`p-2 my-3 border rounded-full focus:outline-none w-full opacity-0 transition-opacity duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
                             </div>
                         </div>
