@@ -30,7 +30,7 @@ function Header() {
     };
 
     return (
-        <header className="w-full relative border-t-4 border-blue-300">
+        <header className="w-full relative gradient-border-top ">
             {/* Parent container for left and right sides */}
             <div className='flex justify-between items-center'>
                 {/* Left side of the header */}
@@ -55,15 +55,15 @@ function Header() {
                                 </a>
                             </li>
                             <li>
-                            <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Servicios')}>
+                                <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Servicios')}>
                                     Servicios
                                     {selectedLink === 'Servicios' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
                                     )}
-                                </a>                            
-                             </li>
+                                </a>
+                            </li>
                             <li>
-                            <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Galeria')}>
+                                <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Galeria')}>
                                     Galeria
                                     {selectedLink === 'Galeria' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
@@ -71,7 +71,7 @@ function Header() {
                                 </a>
                             </li>
                             <li>
-                            <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Contacto')}>
+                                <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Contacto')}>
                                     Contacto
                                     {selectedLink === 'Contacto' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
@@ -79,7 +79,7 @@ function Header() {
                                 </a>
                             </li>
                             <li>
-                            <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Preguntas frequentes')}>
+                                <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Preguntas frequentes')}>
                                     FAQ
                                     {selectedLink === 'Preguntas frequentes' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
