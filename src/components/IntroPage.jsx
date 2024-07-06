@@ -3,7 +3,7 @@ import 'animate.css';
 import abstract from '../images/icons/pattern.png';
 
 function IntroPage() {
-    const eyeImage = new URL('../images/things/eye.JPG', import.meta.url).href;
+    // const eyeImage = new URL('../images/things/eye.JPG', import.meta.url).href;
 
     return (
         <main className='flex p-24 pl-64 '>
