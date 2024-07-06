@@ -6,9 +6,9 @@ function IntroPage() {
     const eyeImage = new URL('../images/things/eye.JPG', import.meta.url).href;
 
     return (
-        <main className='m-24 ml-64 w-full'>
+        <main className='flex p-24 pl-64 '>
             {/* Left side of the page */}
-            <section>
+            <section className='flex-grow'>
                 <header>
                     <h6 className='text-base text-slate-500 border-l-4 border-red-700 pl-3'> Más de 35 años de experiencia</h6>
                     <h1 className='text-6xl my-4'>Calidad Poblana</h1>
@@ -40,25 +40,25 @@ function IntroPage() {
                 </footer>
             </section>
 
+            
+
             {/* RightSide of the page */}
-            <aside>
-                <figure>
-                    <img src={abstract} alt="Abstract image" className='w-28 h-28' />
-                </figure>
-
-                <figure className="aspect-w-16 aspect-h-9 mt-4">
-                    <iframe
-                        className="w-1/4 h-96"
-                        src="https://www.youtube.com/embed/pNZb7CXUjs0"
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen>
-                    </iframe>
-                </figure>
-
-                <figure>
-                    <img src={eyeImage} alt="Eye image" className='w-80 h-80' />
+            <aside className='flex-grow pt-12 mb-10 flex flex-col justify-between'>
+                <div>
+                    <figure className="flex justify-center">
+                        <iframe
+                            className="w-5/6 h-96"
+                            src="https://www.youtube.com/embed/pNZb7CXUjs0"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen>
+                        </iframe>
+                    </figure>
+                </div>
+            
+                <figure className='absolute right-0 left-0 mt-20 ml-40'>
+                    <img src={abstract} alt="Abstract image" className='w-28 h-28 mx-auto mt-96' />
                 </figure>
             </aside>
         </main>
