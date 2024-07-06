@@ -2,6 +2,7 @@ import './styles/index.css'
 import Header from './components/Header'
 import LandingPage from './components/LandingPage';
 import IntroPage from './components/IntroPage';
+import Gallery from './components/Gallery';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Header />
         <LandingPage />
         <IntroPage />
+        <Gallery />
       {/* </DarkModeProvider> */}
     </div>
   );
