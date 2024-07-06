@@ -32,12 +32,12 @@ function Header() {
     return (
         <header className="w-full relative gradient-border-top ">
             {/* Parent container for left and right sides */}
-            <div className='flex justify-between items-center'>
+            <div className='flex justify-between items-center py-1'>
                 {/* Left side of the header */}
                 <div className='flex mb-1'>
                     <h1>
                         <button onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
-                            <img src={logo} className="w-24 h-24 m-1 ml-3" alt="Logo" />
+                            <img src={logo} className="w-16 h-16 m-5 mb-0 ml-4" alt="Logo" />
                         </button>
                     </h1>
 
@@ -45,7 +45,7 @@ function Header() {
 
                     {/* Navigation Menu - hidden on small screens, visible on lg screens and up */}
                     <nav className='hidden lg:flex'>
-                        <ul className='flex m-9 ml-12 gap-10 lg:gap-5 lg:ml-4 xl:gap-10 xl:ml-10 mx-auto'>
+                        <ul className='flex m-9 mb-0 gap-10 lg:gap-5 lg:ml-4 xl:gap-10 xl:ml-10 mx-auto'>
                             <li>
                                 <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Inicio')}>
                                     Inicio
@@ -92,9 +92,9 @@ function Header() {
 
                 {/* Right side of the header - hidden on small screens */}
                 <section>
-                    <div className='flex justify-between mb-1'>
+                    <div className='flex justify-between'>
                         {/* Social Media Icons - Correctly hidden on screens smaller than 768px */}
-                        <div className='hidden md:flex justify-end space-x-4 m-5'>
+                        <div className='hidden md:flex justify-end space-x-4 m-6 pt-1'>
                             <a href='https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1' className='text-lg'>
                                 <img src={tiktok} className="w-7 h-7 hover:scale-105 hover:bg-fuchsia-400 rounded-full" />
                             </a>
@@ -107,7 +107,7 @@ function Header() {
                         </div>
 
                         {/* Contact Info - Correctly hidden on screens smaller than 768px */}
-                        <div className='hidden md:flex flex-col space-y-0 m-2 mr-5 mb-5 border-r-2 border-gray-300 pr-4'>
+                        <div className='hidden md:flex flex-col space-y-0 mt-4 mr-5 pr-4 border-r-2 border-gray-300 h-14'>
                             <p className='text-gray-500 text-xs'>Horario de atencion</p>
                             <p className='text-xs'>9:00am a 6:00pm</p>
                             <p className='text-xs'>222 248 8993</p>
@@ -116,7 +116,7 @@ function Header() {
                         {/* These elements are visible on all screen sizes */}
                         <div className='flex'>
                             <button onClick={toggleSearchBar}>
-                                <MagnifyingGlassIcon className="w-7 h-7 mb-3 mr-6 p-0 cursor-pointer" />
+                                <MagnifyingGlassIcon className="w-7 h-7 mb-2 mr-6 mt-3 p-0 cursor-pointer" />
                             </button>
 
                             {/* Render search bar conditionally with transition */}
