@@ -19,15 +19,6 @@ export default {
         },
       },
     },
-
-    animationDelay: {
-      'delay-500': '0.5s',
-      'delay-1000': '1s',
-      'delay-1500': '1.5s',
-      'delay-2000': '2s',
-      'delay-2500': '2.5s',
-      'delay-3000': '3s',
-    },
   },
   
   plugins: [
