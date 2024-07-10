@@ -21,22 +21,22 @@ function Gallery() {
                 <h1 className='text-6xl my-4'>Nuestros trabajos</h1>
             </header>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 m-16">
-                <div data-aos='fade-in' data-aos-delay='250'>
+                <div data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
                     <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='500'>
+                <div data-aos='fade-in' data-aos-delay='500' data-aos-once='true'>
                     <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='750'>
+                <div data-aos='fade-in' data-aos-delay='750' data-aos-once='true'>
                     <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='1000'>
+                <div data-aos='fade-in' data-aos-delay='1000' data-aos-once='true'>
                     <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='1250'>
+                <div data-aos='fade-in' data-aos-delay='1250' data-aos-once='true'>
                     <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='2000'>
+                <div data-aos='fade-in' data-aos-delay='2000' data-aos-once='true'>
                     <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="" />
                 </div>
             </div>
