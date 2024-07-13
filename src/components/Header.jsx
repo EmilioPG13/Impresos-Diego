@@ -120,13 +120,13 @@ function Header() {
                             </button>
 
                             {/* Render search bar conditionally with transition */}
-                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showSearch ? 'max-w-xs' : 'max-w-0'} ml-0 mr-4 mb-3`}>
-                                <input type='text' className={`p-2 my-5 mb-0 border rounded-full focus:outline-none w-full opacity-0 transition-opacity duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
+                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showSearch ? 'max-w-xs' : 'max-w-0'} ml-0 mr-4 pt-5`}>
+                                <input type='text' className={`p-2 my-5npm border rounded-full focus:outline-none w-full opacity-0 transition-opacity duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
                             </div>
                         </div>
 
                         {/* Hamburger menu - visible on all screen sizes */}
-                        <button className='lg:hidden mr-6 mb-2' onClick={toggleMenu}>
+                        <button className='lg:hidden mr-6 pt-1' onClick={toggleMenu}>
                             <Bars3Icon className='w-8 h-8' />
                         </button>
                     </div>
