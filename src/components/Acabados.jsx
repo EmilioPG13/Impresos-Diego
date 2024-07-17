@@ -8,7 +8,7 @@ import doblez from '../images/icons/doblez.png'
 
 function Acabados() {
     return (
-        <main className="flex justify-center items-center">
+        <main className="flex justify-center items-center mb-28">
             <section className="text-center">
                 <header className="text-center mb-14">
                     <div className="inline-block border-l-4 border-red-700">
