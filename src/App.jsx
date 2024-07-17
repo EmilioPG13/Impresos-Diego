@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage';
 import IntroPage from './components/IntroPage';
 import Gallery from './components/Gallery';
 import Acabados from './components/Acabados';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <IntroPage />
         <Gallery />
         <Acabados />
+        <Footer />
       {/* </DarkModeProvider> */}
     </div>
   );
