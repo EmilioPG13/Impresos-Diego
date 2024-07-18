@@ -1,19 +1,18 @@
+import Logo from '../images/icons/ID-logo.png'
+
 function Footer () {
     return (
     <footer className="bg-white dark:bg-gray-900">
         <div className="mx-auto w-full max-w-screen-xl">
             <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
                 <div>
-                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
+                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Compañia</h2>
                     <ul className="text-gray-500 dark:text-gray-400 font-medium">
                         <li className="mb-4">
-                            <a href="#" className=" hover:underline">About</a>
+                            <a href="#" className=" hover:underline">Acerca de</a>
                         </li>
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Careers</a>
-                        </li>
-                        <li className="mb-4">
-                            <a href="#" className="hover:underline">Brand Center</a>
+                            <a href="#" className="hover:underline">Centro de Marca</a>
                         </li>
                         <li className="mb-4">
                             <a href="#" className="hover:underline">Blog</a>
@@ -21,19 +20,19 @@ function Footer () {
                     </ul>
                 </div>
                 <div>
-                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
+                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Centro de ayuda</h2>
                     <ul className="text-gray-500 dark:text-gray-400 font-medium">
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Discord Server</a>
+                            <a href="#" className="hover:underline">Chat WhatsApp</a>
                         </li>
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Twitter</a>
+                            <a href="#" className="hover:underline">Tik-tok</a>
                         </li>
                         <li className="mb-4">
                             <a href="#" className="hover:underline">Facebook</a>
                         </li>
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Contact Us</a>
+                            <a href="#" className="hover:underline">Contactanos</a>
                         </li>
                     </ul>
                 </div>
@@ -41,32 +40,18 @@ function Footer () {
                     <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                     <ul className="text-gray-500 dark:text-gray-400 font-medium">
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Privacy Policy</a>
+                            <a href="#" className="hover:underline">Politica de privacidad</a>
                         </li>
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Licensing</a>
+                            <a href="#" className="hover:underline">Licencias</a>
                         </li>
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Terms &amp; Conditions</a>
+                            <a href="#" className="hover:underline">Terminos &amp; Condiciones</a>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
-                    <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                        <li className="mb-4">
-                            <a href="#" className="hover:underline">iOS</a>
-                        </li>
-                        <li className="mb-4">
-                            <a href="#" className="hover:underline">Android</a>
-                        </li>
-                        <li className="mb-4">
-                            <a href="#" className="hover:underline">Windows</a>
-                        </li>
-                        <li className="mb-4">
-                            <a href="#" className="hover:underline">MacOS</a>
-                        </li>
-                    </ul>
+                    <img src={Logo} alt="Company Logo" className='w-32 pt-8' />
                 </div>
             </div>
         </div>
