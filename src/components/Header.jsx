@@ -37,7 +37,7 @@ function Header() {
                 <div className='flex mb-1'>
                     <h1>
                         <button onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
-                            <img src={logo} className="w-16 h-16 m-5 mb-0 ml-4" alt="Logo" />
+                            <img src={logo} className="w-16 m-5 mb-0 ml-4" alt="Logo" />
                         </button>
                     </h1>
 
@@ -45,7 +45,7 @@ function Header() {
 
                     {/* Navigation Menu - hidden on small screens, visible on lg screens and up */}
                     <nav className='hidden lg:flex'>
-                        <ul className='flex m-9 mb-0 gap-10 lg:gap-5 lg:ml-4 xl:gap-10 xl:ml-10 mx-auto'>
+                        <ul className='flex m-8 mb-0 gap-10 lg:gap-5 lg:ml-4 xl:gap-10 xl:ml-10 mx-auto'>
                             <li>
                                 <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Inicio')}>
                                     Inicio
