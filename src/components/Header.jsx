@@ -41,8 +41,6 @@ function Header() {
                         </button>
                     </h1>
 
-
-
                     {/* Navigation Menu - hidden on small screens, visible on lg screens and up */}
                     <nav className='hidden lg:flex'>
                         <ul className='flex m-8 mb-0 gap-10 lg:gap-5 lg:ml-4 xl:gap-10 xl:ml-10 mx-auto'>
