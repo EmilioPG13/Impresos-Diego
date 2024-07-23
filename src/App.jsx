@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/index.css'
 import Header from './components/Header'
 import LandingPage from './components/LandingPage';
@@ -8,16 +9,20 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="bg-stone-50 min-h-screen">
-      {/* <DarkModeProvider> */}
+    <BrowserRouter>
+      <div className="bg-stone-50 min-h-screen">
+        {/* <DarkModeProvider> */}
         <Header />
-        <LandingPage />
-        <IntroPage />
-        <Gallery />
-        <Acabados />
+        <Routes>
+          <Route path='/' element={<LandingPage />} />
+        </Routes>
+          <IntroPage />
+          <Gallery />
+          <Acabados />
         <Footer />
-      {/* </DarkModeProvider> */}
-    </div>
+        {/* </DarkModeProvider> */}
+      </div>
+    </BrowserRouter>
   );
 }
 
