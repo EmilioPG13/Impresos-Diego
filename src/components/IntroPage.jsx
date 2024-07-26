@@ -56,10 +56,6 @@ function IntroPage() {
                         </iframe>
                     </figure>
                 </div>
-
-                <figure className='absolute right-0 left-0 mt-20 ml-40'>
-                    <img src={abstract} alt="Abstract image" className='w-28 h-28 mx-auto mt-96' />
-                </figure>
             </aside>
         </main>
     )
