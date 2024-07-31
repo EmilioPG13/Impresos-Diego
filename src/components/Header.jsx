@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 //Images and icons
 import logo from '../images/icons/ID-logo.png';
 import tiktok from '../images/icons/tiktok.png';
@@ -45,44 +46,44 @@ function Header() {
                     <nav className='hidden lg:flex'>
                         <ul className='flex m-8 mb-0 gap-10 lg:gap-5 lg:ml-4 xl:gap-10 xl:ml-10 mx-auto'>
                             <li>
-                                <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Inicio')}>
+                                <Link to='/' className="text-sky text-base" onClick={() => handleLinkClick('Inicio')}>
                                     Inicio
                                     {selectedLink === 'Inicio' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
                                     )}
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Servicios')}>
+                                <Link to='/servicios' className="text-sky text-base" onClick={() => handleLinkClick('Servicios')}>
                                     Servicios
                                     {selectedLink === 'Servicios' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
                                     )}
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Galeria')}>
+                                <Link to='/galeria' className="text-sky text-base" onClick={() => handleLinkClick('Galeria')}>
                                     Galeria
                                     {selectedLink === 'Galeria' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
                                     )}
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Contacto')}>
+                                <Link to='/contacto' className="text-sky text-base" onClick={() => handleLinkClick('Contacto')}>
                                     Contacto
                                     {selectedLink === 'Contacto' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
                                     )}
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className="text-sky text-base" onClick={() => handleLinkClick('Preguntas frequentes')}>
+                                <Link to='/faq' className="text-sky text-base" onClick={() => handleLinkClick('Preguntas frequentes')}>
                                     FAQ
                                     {selectedLink === 'Preguntas frequentes' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
                                     )}
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
