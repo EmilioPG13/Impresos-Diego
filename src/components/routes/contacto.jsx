@@ -1,7 +1,7 @@
 function Contacto() {
     return (
         <div>
-            <p>HOla hoe</p>
+            <p>Hola hoe</p>
         </div>
     );
 }
