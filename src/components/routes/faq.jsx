@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import manWorking from '../../images/people/manWorking.jpg';
 
 const Accordion = ({ items }) => {
@@ -54,7 +54,7 @@ function FAQ() {
             ),
         },
         {
-            title: 'Is there a Figma file available?',
+            title: '¿Por qué es mejor la impresion offset que la digital?',
             content: (
                 <>
                     <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
@@ -63,7 +63,7 @@ function FAQ() {
             ),
         },
         {
-            title: 'What are the differences between Flowbite and Tailwind UI?',
+            title: '¿Cuál es el proceso de entrega?',
             content: (
                 <>
                     <p className="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
@@ -80,9 +80,9 @@ function FAQ() {
 
     return (
         <>
-            <h1 className="m-9 flex items-center text-5xl font-extrabold dark:text-gray-500">
+            <h1 className="m-9 flex items-center text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
                 Preguntas Frequentes
-                <span className="bg-blue-400 text-blue-800 text-2xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2">FAQ</span>
+                <span className="bg-blue-400 text-blue-800 text-2xl font-bold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2">FAQ</span>
             </h1>
             <br />
             <div className="flex justify-center items-center">
