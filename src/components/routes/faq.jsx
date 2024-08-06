@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import manWorking from '../../images/people/manWorking.jpg';
+import PropTypes from 'prop-types';
 
 const Accordion = ({ items }) => {
     const [openItem, setOpenItem] = useState(null);
@@ -15,7 +16,7 @@ const Accordion = ({ items }) => {
                     <h2 id={`accordion-open-heading-${index + 1}`}>
                         <button
                             type="button"
-                            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
                             onClick={() => toggleItem(index)}
                             aria-expanded={openItem === index}
                             aria-controls={`accordion-open-body-${index + 1}`}
@@ -32,7 +33,7 @@ const Accordion = ({ items }) => {
                         </button>
                     </h2>
                     <div id={`accordion-open-body-${index + 1}`} className={`${openItem === index ? '' : 'hidden'}`} aria-labelledby={`accordion-open-heading-${index + 1}`}>
-                        <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                        <div className="p-5 border border-gray-200 bg-sky-950">
                             {item.content}
                         </div>
                     </div>
@@ -48,8 +49,8 @@ function FAQ() {
             title: '¿Que es la impresion off-set?',
             content: (
                 <>
-                    <p className="mb-2 text-gray-500 dark:text-gray-400">La impresión offset, usada para producir grandes volúmenes de materiales impresos, transfiere una imagen de una placa de aluminio a un rodillo de goma y luego al papel o cartón.</p>
-                    <p className="text-gray-500 dark:text-gray-400">Es un <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">método indirecto, </a> ya que la imagen de la placa pasa primero al rodillo antes de depositarse en el sustrato.</p>
+                    <p className="mb-2 text-gray-300 dark:text-gray-400">La impresión offset, usada para producir grandes volúmenes de materiales impresos, transfiere una imagen de una placa de aluminio a un rodillo de goma y luego al papel o cartón.</p>
+                    <p className="text-gray-300 dark:text-gray-400">Es un <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">método indirecto, </a> ya que la imagen de la placa pasa primero al rodillo antes de depositarse en el sustrato.</p>
                 </>
             ),
         },
@@ -57,8 +58,8 @@ function FAQ() {
             title: '¿Por qué es mejor la impresion offset que la digital?',
             content: (
                 <>
-                    <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-                    <p className="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" className="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+                    <p className="mb-2 text-gray-300 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+                    <p className="text-gray-300 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" className="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
                 </>
             ),
         },
@@ -66,10 +67,10 @@ function FAQ() {
             title: '¿Cuál es el proceso de entrega?',
             content: (
                 <>
-                    <p className="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
-                    <p className="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
-                    <p className="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-                    <ul className="ps-5 text-gray-500 list-disc dark:text-gray-400">
+                    <p className="mb-2 text-gray-300 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
+                    <p className="mb-2 text-gray-300 dark:text-gray-400">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
+                    <p className="mb-2 text-gray-300 dark:text-gray-400">Learn more about these technologies:</p>
+                    <ul className="ps-5 text-gray-300 list-disc dark:text-gray-400">
                         <li><a href="https://flowbite.com/pro/" className="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
                         <li><a href="https://tailwindui.com/" rel="nofollow" className="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
                     </ul>
