@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import manWorking from '../../images/people/manWorking.jpg';
 import PropTypes from 'prop-types';
+// Icons
+import whatsapp from '../../images/icons/whatsapp.svg';
+import phone from '../../images/icons/phone.svg';
 
 const Accordion = ({ items }) => {
     const [openItem, setOpenItem] = useState(null);
@@ -32,7 +35,7 @@ const Accordion = ({ items }) => {
                             </svg>
                         </button>
                     </h2>
-                    <div id={`accordion-open-body-${index + 1}`} className={`${openItem === index ? '' : 'hidden'}`} aria-labelledby={`accordion-open-heading-${index + 1}`}>
+                    <div id={`accordion-open-body-${index + 1}`} className={`${openItem === index ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-300`} aria-labelledby={`accordion-open-heading-${index + 1}`}>
                         <div className="p-5 border border-gray-200 bg-sky-950">
                             {item.content}
                         </div>
@@ -88,17 +91,24 @@ function FAQ() {
             <br />
             <div className="flex justify-center items-center">
                 <Accordion items={faqItems} />
-                <div role="status" className="w-1/2 mr-12 h-auto max-w-lg ms-auto p-4 border border-gray-200 rounded shadow md:p-6 dark:border-gray-700">
-                    <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700 overflow-hidden">
+                <div role="status" className="w-1/2 mr-16 h-auto max-w-lg ms-auto p-4 border border-gray-200 rounded shadow md:p-6 dark:border-gray-700">
+                    <div className="flex items-center justify-center h-80 mb-4 bg-gray-300 rounded dark:bg-gray-700 overflow-hidden">
                         <img className="w-full h-full object-cover" src={manWorking} alt="image description" />
                     </div>
-                    <div className="text-xl font-bold dark:text-gray-600 h-2.5 w-auto">
+                    <div className="text-xl font-bold h-2.5 w-auto mb-4 dark:text-gray-600">
                         ¿Tienes alguna pregunta en especifico?
                     </div>
                     <br />
                     <div className="flex items-center mt-4">
-                        <button type="button" className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Contactanos</button>
-                    </div>
+                    <button type="button" className="flex items-center justify-between text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Te contactamos
+                        <img src={phone} className='h-5 w-5 ml-2' />
+                    </button>
+                    <button type="button" className="flex items-center justify-between text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                        Contactanos
+                        <img src={whatsapp} className='h-6 w-6 ml-2' />
+                    </button>                    
+                        </div>
                 </div>
             </div>
             <br />
