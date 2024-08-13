@@ -5,6 +5,7 @@ import Gallery from '../Gallery';
 import Acabados from '../Acabados';
 import Contacto from '../routes/contacto';
 import FAQ from '../routes/faq';
+import Servicios from '../routes/servicios';
 
 const AppRoutes = () => {
     return (
@@ -17,8 +18,9 @@ const AppRoutes = () => {
                     <Acabados />
                 </>
             } />
-            <Route path="/faq" element={<FAQ />} />
+            <Route path="/servicios" element={<Servicios />} />
             <Route path="/contacto" element={<Contacto />} />
+            <Route path="/faq" element={<FAQ />} />
         </Routes>
     );
 };
