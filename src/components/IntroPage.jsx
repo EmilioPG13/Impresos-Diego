@@ -14,11 +14,13 @@ function IntroPage() {
                 </header>
 
                 <article className='mt-20 mb-20 text-2xl'>
-                    <p>Somos una imprenta con base en Puebla que se </p>
-                    <p>especializa en soluciones de impresión Offset.</p>
-                    <p>Ofrecemos una variedad de servicios, que incluyen</p>
-                    <p> la impresión de revistas, catálogos, libros de texto,</p>
-                    <p>manteletas, folletos, entre otros formatos.</p>
+                    <p>
+                        Somos una imprenta en Puebla con más de 35 años de experiencia.<br />
+                        Hacemos revistas, catálogos, trípticos y muchos otros formatos.<br />
+                        Con clientes en varios estados de la República, nos mantenemos<br />
+                        como una opción confiable, vigente y de alta calidad en el<br />
+                        mercado para dar vida a los proyectos de nuestros clientes.
+                    </p>
                 </article>
 
                 <nav>
@@ -42,14 +44,13 @@ function IntroPage() {
 
 
             {/* RightSide of the page */}
-            <aside className='flex-grow pt-12 mb-10 flex flex-col justify-between'>
+                        <aside className='flex-grow flex flex-col justify-between w-[50rem] h-auto pt-28'>
                 <div>
                     <figure className="flex justify-center">
                         <iframe
                             className="w-5/6 h-96"
-                            src="https://www.youtube.com/embed/pNZb7CXUjs0"
+                            src="https://www.youtube.com/embed/aH_Jw_9sF10"
                             title="YouTube video player"
-                            frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen>
                         </iframe>
