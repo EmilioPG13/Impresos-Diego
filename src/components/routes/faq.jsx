@@ -58,11 +58,12 @@ function FAQ() {
             ),
         },
         {
-            title: '¿Por qué es mejor la impresion offset que la digital?',
+            title: '¿Cuál es el tiempo de entrega?',
             content: (
                 <>
-                    <p className="mb-2 text-gray-300 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-                    <p className="text-gray-300 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" className="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+                    <p className="mb-2 text-gray-300 dark:text-gray-400">Una vez recibidos y aprobados los archivos los tiempos de entrega son de 5 a 7 días hábiles.
+                    </p>
+                    <p className="text-gray-300 dark:text-gray-400"> De ser necesario se tendrán que hacer las correcciones que nuestro equipo de diseño haya solicitado.</p>
                 </>
             ),
         },
@@ -70,21 +71,63 @@ function FAQ() {
             title: '¿Cuál es el proceso de entrega?',
             content: (
                 <>
-                    <p className="mb-2 text-gray-300 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
-                    <p className="mb-2 text-gray-300 dark:text-gray-400">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
-                    <p className="mb-2 text-gray-300 dark:text-gray-400">Learn more about these technologies:</p>
-                    <ul className="ps-5 text-gray-300 list-disc dark:text-gray-400">
-                        <li><a href="https://flowbite.com/pro/" className="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
-                        <li><a href="https://tailwindui.com/" rel="nofollow" className="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
-                    </ul>
+                    <nav className="flex" aria-label="Breadcrumb">
+                        <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                            <li className="inline-flex items-center">
+                                <span href="#" className="inline-flex items-center text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">
+                                    Recepcion de<br />archivos
+                                </span>
+                            </li>
+                            <li>
+                                <div className="flex items-center">
+                                    <svg className="rtl:rotate-180 w-3 h-3 text-gray-300 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                    </svg>
+                                    <span href="#" className="ms-1 text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">Preparacion<br />de placas</span>
+                                </div>
+                            </li>
+                            <li aria-current="page">
+                                <div className="flex items-center">
+                                    <svg className="rtl:rotate-180 w-3 h-3 text-gray-300 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                    </svg>
+                                    <span className="ms-1 text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">Proceso de<br />impresion</span>
+                                </div>
+                            </li>
+                            <li aria-current="page">
+                                <div className="flex items-center">
+                                    <svg className="rtl:rotate-180 w-3 h-3 text-gray-300 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                    </svg>
+                                    <span className="ms-1 text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">Terminado y<br />acabado</span>
+                                </div>
+                            </li>
+                            <li aria-current="page">
+                                <div className="flex items-center">
+                                    <svg className="rtl:rotate-180 w-3 h-3 text-gray-300 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                    </svg>
+                                    <span className="ms-1 text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">Entrega</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </nav>
+                </>
+            ),
+        },
+        {
+            title: '¿Cómo debe ser el pago?',
+            content: (
+                <>
+                    <p className="mb-2 text-gray-300 dark:text-gray-400">Se debe dar un adelanto del 50% para poder iniciar el trabajo, y el restante se finiquita antes de la entrega.</p>
                 </>
             ),
         },
     ];
 
     return (
-        <>
-            <h1 className="m-9 flex items-center text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+        <section className="bg-white dark:bg-gray-900">
+            <h1 className="p-9 flex items-center text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
                 Preguntas Frequentes
                 <span className="bg-blue-400 text-blue-800 text-2xl font-bold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2">FAQ</span>
             </h1>
@@ -100,19 +143,19 @@ function FAQ() {
                     </div>
                     <br />
                     <div className="flex items-center mt-4">
-                    <button type="button" className="flex items-center justify-between text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Te contactamos
-                        <img src={phone} className='h-5 w-5 ml-2' />
-                    </button>
-                    <button type="button" className="flex items-center justify-between text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                        Contactanos
-                        <img src={whatsapp} className='h-6 w-6 ml-2' />
-                    </button>                    
-                        </div>
+                        <button type="button" className="flex items-center justify-between text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Te contactamos
+                            <img src={phone} className='h-5 w-5 ml-2' />
+                        </button>
+                        <button type="button" className="flex items-center justify-between text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                            Contactanos
+                            <img src={whatsapp} className='h-6 w-6 ml-2' />
+                        </button>
+                    </div>
                 </div>
             </div>
             <br />
-        </>
+        </section>
     );
 }
 
