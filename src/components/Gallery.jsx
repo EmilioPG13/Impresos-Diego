@@ -1,9 +1,17 @@
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 //Libraries
 import 'animate.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'flowbite/dist/flowbite.css';
+
+// Images
+import productImage1 from '../images/product/Grapa.jpg';
+import productImage2 from '../images/product/Hot-Melt.jpg';
+import productImage3 from '../images/product/manteletas-de-papel-para-restaurantes.jpg';
+import productImage4 from '../images/product/Polipticos.jpg';
+import productImage5 from '../images/product/Tríptico.jpg';
+import productImage6 from '../images/product/Printer.jpg';
 
 
 function Gallery() {
@@ -21,23 +29,23 @@ function Gallery() {
                 <h1 className='text-6xl my-4'>Nuestros trabajos</h1>
             </header>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 m-16">
-                <div data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
-                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="" />
+                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
+                    <img className="w-full h-full object-cover rounded-lg" src={productImage1} alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='500' data-aos-once='true'>
-                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
+                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='500' data-aos-once='true'>
+                    <img className="w-full h-full object-cover rounded-lg" src={productImage2} alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='750' data-aos-once='true'>
-                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="" />
+                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='750' data-aos-once='true'>
+                    <img className="w-full h-full object-cover rounded-lg" src={productImage3} alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='1000' data-aos-once='true'>
-                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="" />
+                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='1000' data-aos-once='true'>
+                    <img className="w-full h-full object-cover rounded-lg" src={productImage4} alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='1250' data-aos-once='true'>
-                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="" />
+                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='1250' data-aos-once='true'>
+                    <img className="w-full h-full object-cover rounded-lg" src={productImage5} alt="" />
                 </div>
-                <div data-aos='fade-in' data-aos-delay='2000' data-aos-once='true'>
-                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="" />
+                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='2000' data-aos-once='true'>
+                    <img className="w-full h-full object-cover rounded-lg" src={productImage6} alt="" />
                 </div>
             </div>
         </main>
