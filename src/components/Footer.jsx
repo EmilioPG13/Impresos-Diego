@@ -26,13 +26,13 @@ function Footer () {
                             <a href="#" className="hover:underline">Chat WhatsApp</a>
                         </li>
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Tik-tok</a>
+                            <a href="https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1" className="hover:underline">Tik-tok</a>
                         </li>
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Facebook</a>
+                            <a href="https://www.facebook.com/profile.php?id=61560933800832&mibextid=LQQJ4d" className="hover:underline">Facebook</a>
                         </li>
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Contactanos</a>
+                            <a href="/contacto" className="hover:underline">Contactanos</a>
                         </li>
                     </ul>
                 </div>
