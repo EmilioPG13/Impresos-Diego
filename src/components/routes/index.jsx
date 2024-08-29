@@ -4,8 +4,9 @@ import IntroPage from '../IntroPage';
 import Gallery from '../Gallery';
 import Acabados from '../Acabados';
 import Contacto from '../routes/contacto';
-import FAQ from '../routes/faq';
 import Servicios from '../routes/servicios';
+import Nosotros from '../routes/nosotros';
+import FAQ from '../routes/faq';
 
 const AppRoutes = () => {
     return (
@@ -19,6 +20,7 @@ const AppRoutes = () => {
                 </>
             } />
             <Route path="/servicios" element={<Servicios />} />
+            <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/faq" element={<FAQ />} />
         </Routes>
