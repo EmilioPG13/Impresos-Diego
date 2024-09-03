@@ -62,9 +62,9 @@ function Header() {
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/galeria' className="text-sky text-base" onClick={() => handleLinkClick('Galeria')}>
+                                <Link to='/nosotros' className="text-sky text-base" onClick={() => handleLinkClick('Nosotros')}>
                                     Nosotros
-                                    {selectedLink === 'Galeria' && (
+                                    {selectedLink === 'Nosotros' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
                                     )}
                                 </Link>
