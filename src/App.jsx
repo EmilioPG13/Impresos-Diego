@@ -6,7 +6,7 @@ import AppRoutes from './components/routes/index';
 
 function App() {
   return (
-    <div className="bg-stone-50 min-h-screen">
+    <div className="bg-stone-50">
       <Router>
         <Header />
         <Routes>
