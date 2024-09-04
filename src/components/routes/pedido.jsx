@@ -1,6 +1,6 @@
 import InputMask from 'react-input-mask';
 
-function Contacto() {
+function Pedido() {
     return (
         <>
             <section className="bg-white dark:bg-gray-900">
@@ -85,4 +85,4 @@ function Contacto() {
     );
 }
 
-export default Contacto;
+export default Pedido;

@@ -70,9 +70,9 @@ function Header() {
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/contacto' className="text-sky text-base" onClick={() => handleLinkClick('Contacto')}>
-                                    Contacto
-                                    {selectedLink === 'Contacto' && (
+                                <Link to='/pedido' className="text-sky text-base" onClick={() => handleLinkClick('Pedido')}>
+                                    Haz tu pedido
+                                    {selectedLink === 'Pedido' && (
                                         <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
                                     )}
                                 </Link>

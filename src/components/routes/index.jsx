@@ -3,7 +3,7 @@ import LandingPage from '../LandingPage';
 import IntroPage from '../IntroPage';
 import Gallery from '../Gallery';
 import Acabados from '../Acabados';
-import Contacto from '../routes/contacto';
+import Pedido from './pedido';
 import Servicios from '../routes/servicios';
 import Nosotros from '../routes/nosotros';
 import FAQ from '../routes/faq';
@@ -21,7 +21,7 @@ const AppRoutes = () => {
             } />
             <Route path="/servicios" element={<Servicios />} />
             <Route path="/nosotros" element={<Nosotros />} />
-            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/pedido" element={<Pedido />} />
             <Route path="/faq" element={<FAQ />} />
         </Routes>
     );
