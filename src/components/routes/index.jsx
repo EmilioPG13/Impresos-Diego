@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import LandingPage from '../LandingPage';
 import IntroPage from '../IntroPage';
 import Gallery from '../Gallery';
@@ -8,13 +9,13 @@ import Servicios from '../routes/servicios';
 import Nosotros from '../routes/nosotros';
 import FAQ from '../routes/faq';
 
-const AppRoutes = () => {
+const AppRoutes = ({ handleLinkClick }) => {
     return (
         <Routes>
             <Route path="/" element={
                 <>
                     <LandingPage />
-                    <IntroPage />
+                    <IntroPage handleLinkClick={handleLinkClick} />
                     <Gallery />
                     <Acabados />
                 </>
@@ -26,5 +27,9 @@ const AppRoutes = () => {
         </Routes>
     );
 };
+
+AppRoutes.propTypes = {
+    handleLinkClick: PropTypes.func.isRequired,
+};  
 
 export default AppRoutes;

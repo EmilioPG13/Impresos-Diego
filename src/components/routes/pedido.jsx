@@ -34,10 +34,10 @@ function Pedido() {
                         <div>
                             <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero de telefono</label>
                             <InputMask 
-                                mask='(999) - 999 - 9999'
+                                mask='(999)-999-9999'
                                 maskChar={null}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="(xxx) - xxx - xxxx"
+                                placeholder="(xxx)-xxx-xxxx"
                                 required
                             />
                         </div>

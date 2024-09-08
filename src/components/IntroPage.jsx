@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import 'flowbite';
 import 'animate.css';
 
-function IntroPage() {
+const IntroPage = ({ handleLinkClick }) => {
     // const eyeImage = new URL('../images/things/eye.JPG', import.meta.url).href;
 
     return (
@@ -33,10 +35,16 @@ function IntroPage() {
                 </nav>
 
                 <footer className='mt-12'>
-                    <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 hover:from-cyan-500 hover:to-blue-500 hover:text-white dark:text-slate-600 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-                        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-100 rounded-md group-hover:bg-opacity-0">
+                    <button 
+                        className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 hover:from-cyan-500 hover:to-blue-500 hover:text-white dark:text-slate-600 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+                        onClick={() => handleLinkClick('Nosotros')}
+                    >
+                        <Link 
+                            to="/nosotros" 
+                            className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-100 rounded-md group-hover:bg-opacity-0"
+                        >
                             Conoce más
-                        </span>
+                        </Link>
                     </button>
                 </footer>
             </section>
@@ -58,7 +66,11 @@ function IntroPage() {
                 </div>
             </aside>
         </main>
-    )
-}
+    );
+};
+
+IntroPage.propTypes = {
+    handleLinkClick: PropTypes.func.isRequired,
+};
 
 export default IntroPage;
