@@ -1,28 +1,20 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-//Images and icons
+// Images and icons
 import logo from '../images/icons/ID-logo.png';
 import tiktok from '../images/icons/tiktok.png';
 import instagram from '../images/icons/instagram.png';
 import facebook from '../images/icons/facebook.png';
 import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
-
-function Header() {
-    // States to manage search bar, menu focus, hamburger menu
+const Header = ({ selectedLink, handleLinkClick }) => {
+    // States to manage search bar and hamburger menu
     const [showSearch, setShowSearch] = useState(false);
-    const [selectedLink, setSelectedLink] = useState('Inicio');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
 
     // Function to toggle the search bar
     const toggleSearchBar = () => {
         setShowSearch(prevShowSearch => !prevShowSearch);
-    };
-
-    // Function to update the selected link
-    const handleLinkClick = (linkName) => {
-        setSelectedLink(linkName);
     };
 
     // Function to toggle the hamburger menu
@@ -156,7 +148,7 @@ function Header() {
                         <a href="#" className={`text-sky text-lg ${selectedLink === 'Servicios' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Servicios')}>Servicios</a>
                     </li>
                     <li>
-                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Galeria' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Galeria')}>Nosotros</a>
+                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Nosotros' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Nosotros')}>Nosotros</a>
                     </li>
                     <li>
                         <a href="#" className={`text-sky text-lg ${selectedLink === 'Contacto' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Contacto')}>Contacto</a>
