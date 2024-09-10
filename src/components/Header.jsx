@@ -84,18 +84,6 @@ const Header = ({ selectedLink, handleLinkClick }) => {
                 {/* Right side of the header - hidden on small screens */}
                 <section>
                     <div className='flex justify-between'>
-                        {/* Social Media Icons - Correctly hidden on screens smaller than 768px */}
-                        <div className='hidden md:flex justify-end space-x-4 m-6 pt-1'>
-                            <a href='https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1' className='text-lg'>
-                                <img src={tiktok} className="w-7 h-7 hover:scale-105 hover:bg-fuchsia-400 rounded-full" />
-                            </a>
-                            <a href='https://www.instagram.com/impresosdiego?igsh=MXZpcnM1aTJoNTNpMQ==' className='text-lg'>
-                                <img src={instagram} className="w-7 h-7 hover:scale-105 hover:bg-rose-400 rounded-full" />
-                            </a>
-                            <a href='https://www.facebook.com/profile.php?id=61560933800832&mibextid=LQQJ4d' className='text-lg'>
-                                <img src={facebook} className="w-7 h-7 hover:scale-105 hover:bg-blue-400 rounded-full" />
-                            </a>
-                        </div>
 
                         {/* Contact Info - Correctly hidden on screens smaller than 768px */}
                         <div className='hidden md:flex flex-col space-y-0 mt-4 mr-5 pr-4 border-r-2 border-gray-300 h-14'>
