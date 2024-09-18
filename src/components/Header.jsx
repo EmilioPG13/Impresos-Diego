@@ -127,25 +127,50 @@ const Header = ({ selectedLink, handleLinkClick }) => {
                         <XMarkIcon className="h-6 w-6" />
                     </button>
                 </div>
-                <div className='my-4 mt-8 mx-4 border-t border-blue-400'></div>
+                <div className='my-4 mt-8 mx-4 border-t-2 border-blue-400'></div>
                 <ul className='flex flex-col items-center space-y-5 mt-9'>
                     <li>
-                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Inicio' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Inicio')}>Inicio</a>
+                        <Link to='/' className="text-sky text-lg" onClick={() => { handleLinkClick('Inicio'); toggleMenu(); }}>
+                            Inicio
+                            {selectedLink === 'Inicio' && (
+                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
+                            )}
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Servicios' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Servicios')}>Servicios</a>
+                        <Link to='/servicios' className="text-sky text-lg" onClick={() => { handleLinkClick('Servicios'); toggleMenu(); }}>
+                            Servicios
+                            {selectedLink === 'Servicios' && (
+                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
+                            )}
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Nosotros' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Nosotros')}>Nosotros</a>
+                        <Link to='/nosotros' className="text-sky text-lg" onClick={() => { handleLinkClick('Nosotros'); toggleMenu(); }}>
+                            Nosotros
+                            {selectedLink === 'Nosotros' && (
+                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
+                            )}
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Contacto' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Contacto')}>Contacto</a>
+                        <Link to='/pedido' className="text-sky text-lg" onClick={() => { handleLinkClick('Pedido'); toggleMenu(); }}>
+                            Haz tu pedido
+                            {selectedLink === 'Pedido' && (
+                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
+                            )}
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className={`text-sky text-lg ${selectedLink === 'Preguntas frecuentes' ? 'border-b-2 border-blue-500 pb-1' : ''}`} onClick={() => handleLinkClick('Preguntas frecuentes')}>FAQ</a>
+                        <Link to='/faq' className="text-sky text-lg" onClick={() => { handleLinkClick('Preguntas frecuentes'); toggleMenu(); }}>
+                            FAQ
+                            {selectedLink === 'Preguntas frecuentes' && (
+                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
+                            )}
+                        </Link>
                     </li>
                 </ul>
-                <div className='my-4 mt-8 mx-4 border-t border-blue-400'></div>
+                <div className='my-4 mt-8 mx-4 border-t-2 border-blue-400'></div>
                 <p className='text-sm flex justify-center'>Siguenos en:</p>
                 <div className='flex justify-center space-x-4 m-5'>
                     <a href='https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1' className='text-lg'>
