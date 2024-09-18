@@ -29,23 +29,41 @@ function Gallery() {
                 <h1 className='text-6xl my-4'>Nuestros trabajos</h1>
             </header>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 m-16">
-                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
+                <div className="relative w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
                     <img className="w-full h-full object-cover rounded-lg" src={productImage1} alt="" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <span className="text-white text-lg">Revistas a grapa</span>
+                    </div>
                 </div>
-                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='500' data-aos-once='true'>
+                <div className="relative w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
                     <img className="w-full h-full object-cover rounded-lg" src={productImage2} alt="" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <span className="text-white text-lg">Libros/Revistas Hot-melt</span>
+                    </div>
                 </div>
-                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='750' data-aos-once='true'>
+                <div className="relative w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
                     <img className="w-full h-full object-cover rounded-lg" src={productImage3} alt="" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <span className="text-white text-lg">Manteletas</span>
+                    </div>
                 </div>
-                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='1000' data-aos-once='true'>
+                <div className="relative w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
                     <img className="w-full h-full object-cover rounded-lg" src={productImage4} alt="" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <span className="text-white text-lg">Polípticos</span>
+                    </div>
                 </div>
-                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='1250' data-aos-once='true'>
+                <div className="relative w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
                     <img className="w-full h-full object-cover rounded-lg" src={productImage5} alt="" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <span className="text-white text-lg">Trípticos</span>
+                    </div>
                 </div>
-                <div className="w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='2000' data-aos-once='true'>
+                <div className="relative w-full h-40 md:h-64" data-aos='fade-in' data-aos-delay='250' data-aos-once='true'>
                     <img className="w-full h-full object-cover rounded-lg" src={productImage6} alt="" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <span className="text-white text-lg">Impresos Diego©</span>
+                    </div>
                 </div>
             </div>
         </main>
