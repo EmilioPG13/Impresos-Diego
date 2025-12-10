@@ -1,70 +1,122 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import 'flowbite';
 import 'animate.css';
 
 const IntroPage = ({ handleLinkClick }) => {
-    // const eyeImage = new URL('../images/things/eye.JPG', import.meta.url).href;
-
     return (
-        <main className='flex p-24 pl-64 '>
-            {/* Left side of the page */}
-            <section className='flex-grow'>
-                <header>
-                    <h6 className='text-base text-slate-500 border-l-4 border-red-700 pl-3'> Más de 35 años de experiencia</h6>
-                    <h1 className='text-6xl my-4'>Calidad Poblana</h1>
-                </header>
+        <main className="min-h-[calc(100vh-80px)] bg-gradient-hero">
+            {/* Hero Section */}
+            <section className="section-container py-12 lg:py-20">
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                    {/* Left Content */}
+                    <div className="flex-1 text-center lg:text-left">
+                        {/* Experience Badge */}
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 border-l-4 border-red-600 rounded-r-full mb-6">
+                            <i className="bx bx-badge-check text-red-600"></i>
+                            <span className="text-sm font-medium text-gray-700">
+                                Más de 35 años de experiencia
+                            </span>
+                        </div>
 
-                <article className='mt-20 mb-20 text-2xl'>
-                    <p>
-                        Somos una imprenta en Puebla con más de 35 años de experiencia.<br />
-                        Hacemos revistas, catálogos, trípticos y muchos otros formatos.<br />
-                        Con clientes en varios estados de la República, nos mantenemos<br />
-                        como una opción confiable, vigente y de alta calidad en el<br />
-                        mercado para dar vida a los proyectos de nuestros clientes.
-                    </p>
-                </article>
+                        {/* Hero Heading */}
+                        <h1 className="section-header mb-6">
+                            <span className="block">Calidad</span>
+                            <span className="text-gradient">Poblana</span>
+                        </h1>
 
-                <nav>
-                    <ul className='list-disc pl-4 text-lg'>
-                        <li>Conocimiento del mercado</li>
-                        <li>Dominio Tecnico en la impresion Offset</li>
-                        <li>Flexibilidad en la oferta de servicios</li>
-                        <li>Adaptabilidad al cliente en diversos formatos de impresion</li>
-                    </ul>
-                </nav>
+                        {/* Description */}
+                        <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl lg:max-w-none">
+                            Somos una imprenta en Puebla con más de 35 años de experiencia.
+                            Hacemos revistas, catálogos, trípticos y muchos otros formatos.
+                            Con clientes en varios estados de la República, nos mantenemos
+                            como una opción confiable, vigente y de alta calidad.
+                        </p>
 
-                <footer className='mt-12'>
-                    <button 
-                        className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 hover:from-cyan-500 hover:to-blue-500 hover:text-white dark:text-slate-600 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
-                        onClick={() => handleLinkClick('Nosotros')}
-                    >
-                        <Link 
-                            to="/nosotros" 
-                            className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-100 rounded-md group-hover:bg-opacity-0"
-                        >
-                            Conoce más
-                        </Link>
-                    </button>
-                </footer>
+                        {/* Feature List */}
+                        <ul className="space-y-3 mb-10 text-left max-w-md mx-auto lg:mx-0">
+                            {[
+                                'Conocimiento del mercado',
+                                'Dominio técnico en la impresión Offset',
+                                'Flexibilidad en la oferta de servicios',
+                                'Adaptabilidad en diversos formatos de impresión'
+                            ].map((feature, index) => (
+                                <li key={index} className="flex items-start gap-3 text-gray-700">
+                                    <i className="bx bx-check-circle text-blue-500 bx-sm mt-0.5 flex-shrink-0"></i>
+                                    <span>{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        {/* CTA Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <Link
+                                to="/nosotros"
+                                onClick={() => handleLinkClick('Nosotros')}
+                                className="btn-primary"
+                            >
+                                <i className="bx bx-info-circle bx-sm mr-2"></i>
+                                Conoce más
+                            </Link>
+                            <Link
+                                to="/pedido"
+                                onClick={() => handleLinkClick('Pedido')}
+                                className="btn-secondary"
+                            >
+                                <i className="bx bx-file bx-sm mr-2"></i>
+                                Solicitar cotización
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Right Content - Video */}
+                    <div className="flex-1 w-full max-w-2xl lg:max-w-none">
+                        <div className="relative">
+                            {/* Decorative Elements */}
+                            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-2xl opacity-20 blur-xl"></div>
+                            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl opacity-20 blur-xl"></div>
+
+                            {/* Video Container */}
+                            <div className="relative card p-2 sm:p-3">
+                                <div className="aspect-video rounded-xl overflow-hidden bg-gray-100">
+                                    <iframe
+                                        className="w-full h-full"
+                                        src="https://www.youtube.com/embed/aH_Jw_9sF10"
+                                        title="Impresos Diego - Video promocional"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Floating Stats Card */}
+                            <div className="hidden sm:flex absolute -bottom-6 -left-6 card-glass p-4 flex-col items-center animate-float">
+                                <span className="text-3xl font-bold text-gradient">35+</span>
+                                <span className="text-sm text-gray-600">Años de experiencia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-
-
-            {/* RightSide of the page */}
-                        <aside className='flex-grow flex flex-col justify-between w-[50rem] h-auto pt-28'>
-                <div>
-                    <figure className="flex justify-center">
-                        <iframe
-                            className="w-5/6 h-96"
-                            src="https://www.youtube.com/embed/aH_Jw_9sF10"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen>
-                        </iframe>
-                    </figure>
+            {/* Trust Indicators */}
+            <section className="section-container pb-12 lg:pb-20">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+                    {[
+                        { icon: 'bx-printer', label: 'Impresión Offset', value: 'Alta Calidad' },
+                        { icon: 'bx-time-five', label: 'Entrega', value: '5-7 días' },
+                        { icon: 'bx-map', label: 'Cobertura', value: 'Nacional' },
+                        { icon: 'bx-shield-quarter', label: 'Garantía', value: '100%' },
+                    ].map((stat, index) => (
+                        <div key={index} className="card p-4 lg:p-6 text-center">
+                            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-xl mb-3">
+                                <i className={`bx ${stat.icon} bx-md`}></i>
+                            </div>
+                            <p className="text-lg lg:text-xl font-bold text-gray-900">{stat.value}</p>
+                            <p className="text-sm text-gray-500">{stat.label}</p>
+                        </div>
+                    ))}
                 </div>
-            </aside>
+            </section>
         </main>
     );
 };

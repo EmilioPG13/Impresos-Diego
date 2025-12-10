@@ -1,42 +1,41 @@
 import { useState } from 'react';
-import manWorking from '../../images/people/manWorking.jpg';
 import PropTypes from 'prop-types';
-// Icons
-import whatsapp from '../../images/icons/whatsapp.svg';
-import phone from '../../images/icons/phone.svg';
+import manWorking from '../../images/people/manWorking.jpg';
 
 const Accordion = ({ items }) => {
     const [openItem, setOpenItem] = useState(null);
 
-    const toggleItem = (item) => {
-        setOpenItem(openItem === item ? null : item);
+    const toggleItem = (index) => {
+        setOpenItem(openItem === index ? null : index);
     };
 
     return (
-        <div id="accordion-open" data-accordion="open" className="ml-5 w-1/2 p-4">
+        <div className="space-y-3">
             {items.map((item, index) => (
-                <div key={index}>
-                    <h2 id={`accordion-open-heading-${index + 1}`}>
-                        <button
-                            type="button"
-                            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                            onClick={() => toggleItem(index)}
-                            aria-expanded={openItem === index}
-                            aria-controls={`accordion-open-body-${index + 1}`}
-                        >
-                            <span className="flex items-center">
-                                <svg className="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd"></path>
-                                </svg>
-                                {item.title}
-                            </span>
-                            <svg data-accordion-icon className={`w-3 h-3 ${openItem === index ? 'rotate-180' : ''} shrink-0`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
-                            </svg>
-                        </button>
-                    </h2>
-                    <div id={`accordion-open-body-${index + 1}`} className={`${openItem === index ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-300`} aria-labelledby={`accordion-open-heading-${index + 1}`}>
-                        <div className="p-5 border border-gray-200 bg-sky-950">
+                <div
+                    key={index}
+                    className="card overflow-hidden"
+                >
+                    <button
+                        type="button"
+                        className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors"
+                        onClick={() => toggleItem(index)}
+                        aria-expanded={openItem === index}
+                    >
+                        <span className="flex items-center gap-3 font-medium text-gray-900">
+                            <i className="bx bx-help-circle text-blue-500 bx-sm"></i>
+                            {item.title}
+                        </span>
+                        <i className={`bx ${openItem === index ? 'bx-chevron-up' : 'bx-chevron-down'} text-gray-400 transition-transform duration-200`}></i>
+                    </button>
+
+                    <div
+                        className={`
+                            overflow-hidden transition-all duration-300 ease-out
+                            ${openItem === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
+                        `}
+                    >
+                        <div className="p-5 pt-0 text-gray-600 border-t border-gray-100">
                             {item.content}
                         </div>
                     </div>
@@ -46,115 +45,122 @@ const Accordion = ({ items }) => {
     );
 };
 
+Accordion.propTypes = {
+    items: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        content: PropTypes.node.isRequired,
+    })).isRequired,
+};
+
 function FAQ() {
     const faqItems = [
         {
-            title: '¿Que es la impresion off-set?',
+            title: '¿Qué es la impresión offset?',
             content: (
-                <>
-                    <p className="mb-2 text-gray-300 dark:text-gray-400">La impresión offset, usada para producir grandes volúmenes de materiales impresos, transfiere una imagen de una placa de aluminio a un rodillo de goma y luego al papel o cartón.</p>
-                    <p className="text-gray-300 dark:text-gray-400">Es un <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">método indirecto, </a> ya que la imagen de la placa pasa primero al rodillo antes de depositarse en el sustrato.</p>
-                </>
+                <p>
+                    La impresión offset, usada para producir grandes volúmenes de materiales impresos,
+                    transfiere una imagen de una placa de aluminio a un rodillo de goma y luego al papel
+                    o cartón. Es un método indirecto, ya que la imagen de la placa pasa primero al rodillo
+                    antes de depositarse en el sustrato.
+                </p>
             ),
         },
         {
             title: '¿Cuál es el tiempo de entrega?',
             content: (
-                <>
-                    <p className="mb-2 text-gray-300 dark:text-gray-400">Una vez recibidos y aprobados los archivos los tiempos de entrega son de 5 a 7 días hábiles.
-                    </p>
-                    <p className="text-gray-300 dark:text-gray-400"> De ser necesario se tendrán que hacer las correcciones que nuestro equipo de diseño haya solicitado.</p>
-                </>
+                <p>
+                    Una vez recibidos y aprobados los archivos, los tiempos de entrega son de
+                    <strong className="text-blue-600"> 5 a 7 días hábiles</strong>. De ser necesario,
+                    se tendrán que hacer las correcciones que nuestro equipo de diseño haya solicitado.
+                </p>
             ),
         },
         {
-            title: '¿Cuál es el proceso de entrega?',
+            title: '¿Cuál es el proceso de producción?',
             content: (
-                <>
-                    <nav className="flex" aria-label="Breadcrumb">
-                        <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-                            <li className="inline-flex items-center">
-                                <span href="#" className="inline-flex items-center text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">
-                                    Recepcion de<br />archivos
-                                </span>
-                            </li>
-                            <li>
-                                <div className="flex items-center">
-                                    <svg className="rtl:rotate-180 w-3 h-3 text-gray-300 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                    </svg>
-                                    <span href="#" className="ms-1 text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">Preparacion<br />de placas</span>
-                                </div>
-                            </li>
-                            <li aria-current="page">
-                                <div className="flex items-center">
-                                    <svg className="rtl:rotate-180 w-3 h-3 text-gray-300 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                    </svg>
-                                    <span className="ms-1 text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">Proceso de<br />impresion</span>
-                                </div>
-                            </li>
-                            <li aria-current="page">
-                                <div className="flex items-center">
-                                    <svg className="rtl:rotate-180 w-3 h-3 text-gray-300 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                    </svg>
-                                    <span className="ms-1 text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">Terminado y<br />acabado</span>
-                                </div>
-                            </li>
-                            <li aria-current="page">
-                                <div className="flex items-center">
-                                    <svg className="rtl:rotate-180 w-3 h-3 text-gray-300 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                    </svg>
-                                    <span className="ms-1 text-sm font-medium text-gray-300 md:ms-2 dark:text-gray-400">Entrega</span>
-                                </div>
-                            </li>
-                        </ol>
-                    </nav>
-                </>
+                <div className="flex flex-wrap items-center gap-2">
+                    {['Recepción de archivos', 'Preparación de placas', 'Proceso de impresión', 'Terminado y acabado', 'Entrega'].map((step, index, arr) => (
+                        <span key={index} className="flex items-center gap-2">
+                            <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">
+                                {step}
+                            </span>
+                            {index < arr.length - 1 && (
+                                <i className="bx bx-right-arrow-alt text-gray-400"></i>
+                            )}
+                        </span>
+                    ))}
+                </div>
             ),
         },
         {
             title: '¿Cómo debe ser el pago?',
             content: (
-                <>
-                    <p className="mb-2 text-gray-300 dark:text-gray-400">Se debe dar un adelanto del 50% para poder iniciar el trabajo, y el restante se finiquita antes de la entrega.</p>
-                </>
+                <p>
+                    Se debe dar un <strong className="text-blue-600">adelanto del 50%</strong> para poder iniciar
+                    el trabajo, y el restante se finiquita antes de la entrega.
+                </p>
             ),
         },
     ];
 
     return (
-        <section className="bg-white dark:bg-gray-900">
-            <h1 className="p-9 flex items-center text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-                Preguntas Frequentes
-                <span className="bg-blue-400 text-blue-800 text-2xl font-bold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2">FAQ</span>
-            </h1>
-            <br />
-            <div className="flex justify-center items-center">
-                <Accordion items={faqItems} />
-                <div role="status" className="w-1/2 mr-16 h-auto max-w-lg ms-auto p-4 border border-gray-200 rounded shadow md:p-6 dark:border-gray-700">
-                    <div className="flex items-center justify-center h-80 mb-4 bg-gray-300 rounded dark:bg-gray-700 overflow-hidden">
-                        <img className="w-full h-full object-cover" src={manWorking} alt="image description" />
+        <section className="min-h-screen bg-gradient-hero py-12 lg:py-20">
+            <div className="section-container">
+                {/* Header */}
+                <header className="mb-12">
+                    <h1 className="section-header flex flex-wrap items-center gap-3">
+                        Preguntas Frecuentes
+                        <span className="px-4 py-1 bg-blue-100 text-blue-700 text-xl font-bold rounded-full">
+                            FAQ
+                        </span>
+                    </h1>
+                </header>
+
+                {/* Content Grid */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                    {/* Accordion */}
+                    <div>
+                        <Accordion items={faqItems} />
                     </div>
-                    <div className="text-xl font-bold h-2.5 w-auto mb-4 dark:text-gray-600">
-                        ¿Tienes alguna pregunta en especifico?
-                    </div>
-                    <br />
-                    <div className="flex items-center mt-4">
-                        <button type="button" className="flex items-center justify-between text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Te contactamos
-                            <img src={phone} className='h-5 w-5 ml-2' />
-                        </button>
-                        <button type="button" className="flex items-center justify-between text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                            Contactanos
-                            <img src={whatsapp} className='h-6 w-6 ml-2' />
-                        </button>
+
+                    {/* Contact Card */}
+                    <div className="card overflow-hidden">
+                        <div className="aspect-video lg:aspect-auto lg:h-64 overflow-hidden">
+                            <img
+                                src={manWorking}
+                                alt="Equipo de trabajo"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                        <div className="p-6">
+                            <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                ¿Tienes alguna pregunta en específico?
+                            </h3>
+                            <p className="text-gray-600 mb-6">
+                                Nuestro equipo está listo para ayudarte con cualquier duda sobre nuestros servicios.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <a
+                                    href="tel:2222488993"
+                                    className="btn-primary flex-1 justify-center"
+                                >
+                                    <i className="bx bx-phone bx-sm mr-2"></i>
+                                    Te contactamos
+                                </a>
+                                <a
+                                    href="https://wa.me/522222488993"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-secondary flex-1 justify-center !bg-green-600 !text-white hover:!bg-green-700 !border-green-600"
+                                >
+                                    <i className="bxl bxl-whatsapp bx-sm mr-2"></i>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <br />
         </section>
     );
 }

@@ -6,20 +6,21 @@ import Footer from './components/Footer';
 import AppRoutes from './components/routes/index';
 
 function App() {
-  const [selectedLink, setSelectedLink] = useState('');
+  const [selectedLink, setSelectedLink] = useState('Inicio');
 
   const handleLinkClick = (link) => {
-    console.log(`Link clicked: ${link}`); // Debug log
     setSelectedLink(link);
   };
 
   return (
-    <div className="bg-stone-50">
+    <div className="min-h-screen flex flex-col bg-stone-50">
       <Router>
         <Header selectedLink={selectedLink} handleLinkClick={handleLinkClick} />
-        <Routes>
-          <Route path="/*" element={<AppRoutes handleLinkClick={handleLinkClick} />} />
-        </Routes>
+        <main className="flex-1">
+          <Routes>
+            <Route path="/*" element={<AppRoutes handleLinkClick={handleLinkClick} />} />
+          </Routes>
+        </main>
         <Footer />
       </Router>
     </div>

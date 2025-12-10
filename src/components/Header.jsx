@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-// Images and icons
+import PropTypes from 'prop-types';
+// Logo image
 import logo from '../images/icons/ID-logo.png';
-import tiktok from '../images/icons/tiktok.png';
-import instagram from '../images/icons/instagram.png';
-import facebook from '../images/icons/facebook.png';
-import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 const Header = ({ selectedLink, handleLinkClick }) => {
     // States to manage search bar and hamburger menu
@@ -22,170 +19,208 @@ const Header = ({ selectedLink, handleLinkClick }) => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    // Navigation items for DRY code
+    const navItems = [
+        { path: '/', label: 'Inicio', key: 'Inicio' },
+        { path: '/servicios', label: 'Servicios', key: 'Servicios' },
+        { path: '/nosotros', label: 'Nosotros', key: 'Nosotros' },
+        { path: '/pedido', label: 'Haz tu pedido', key: 'Pedido' },
+        { path: '/faq', label: 'FAQ', key: 'Preguntas frecuentes' },
+    ];
+
     return (
-        <header className="w-full relative gradient-border-top ">
-            {/* Parent container for left and right sides */}
-            <div className='flex justify-between items-center py-1'>
-                {/* Left side of the header */}
-                <div className='flex mb-1'>
-                    <h1>
-                        <button onClick={() => handleLinkClick('Inicio')} style={{ cursor: 'pointer' }}>
-                            <img src={logo} className="w-16 m-5 mb-0 ml-4" alt="Logo" />
-                        </button>
-                    </h1>
+        <header className="w-full sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm gradient-border-top">
+            {/* Main header container */}
+            <div className="section-container">
+                <div className="flex justify-between items-center py-2">
+                    {/* Left side - Logo and Navigation */}
+                    <div className="flex items-center">
+                        {/* Logo */}
+                        <Link
+                            to="/"
+                            onClick={() => handleLinkClick('Inicio')}
+                            className="flex-shrink-0"
+                        >
+                            <img
+                                src={logo}
+                                className="w-14 h-14 sm:w-16 sm:h-16 object-contain transition-transform hover:scale-105"
+                                alt="Impresos Diego Logo"
+                            />
+                        </Link>
 
-                    {/* Navigation Menu - hidden on small screens, visible on lg screens and up */}
-                    <nav className='hidden lg:flex'>
-                        <ul className='flex m-8 mb-0 gap-10 lg:gap-5 lg:ml-4 xl:gap-10 xl:ml-10 mx-auto'>
-                            <li>
-                                <Link to='/' className="text-sky text-base" onClick={() => handleLinkClick('Inicio')}>
-                                    Inicio
-                                    {selectedLink === 'Inicio' && (
-                                        <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                                    )}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/servicios' className="text-sky text-base" onClick={() => handleLinkClick('Servicios')}>
-                                    Servicios
-                                    {selectedLink === 'Servicios' && (
-                                        <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                                    )}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/nosotros' className="text-sky text-base" onClick={() => handleLinkClick('Nosotros')}>
-                                    Nosotros
-                                    {selectedLink === 'Nosotros' && (
-                                        <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                                    )}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/pedido' className="text-sky text-base" onClick={() => handleLinkClick('Pedido')}>
-                                    Haz tu pedido
-                                    {selectedLink === 'Pedido' && (
-                                        <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                                    )}
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/faq' className="text-sky text-base" onClick={() => handleLinkClick('Preguntas frequentes')}>
-                                    FAQ
-                                    {selectedLink === 'Preguntas frequentes' && (
-                                        <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                                    )}
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                        {/* Desktop Navigation */}
+                        <nav className="hidden lg:flex ml-8 xl:ml-12">
+                            <ul className="flex items-center gap-6 xl:gap-8">
+                                {navItems.map((item) => (
+                                    <li key={item.key}>
+                                        <Link
+                                            to={item.path}
+                                            className={`nav-link text-sm xl:text-base ${selectedLink === item.key ? 'text-blue-600 active' : ''}`}
+                                            onClick={() => handleLinkClick(item.key)}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    </div>
 
-                {/* Right side of the header - hidden on small screens */}
-                <section>
-                    <div className='flex justify-between'>
-
-                        {/* Contact Info - Correctly hidden on screens smaller than 768px */}
-                        <div className='hidden md:flex flex-col space-y-0 mt-4 mr-5 pr-4 border-r-2 border-gray-300 h-14'>
-                            <p className='text-gray-500 text-xs'>Horario de atencion</p>
-                            <p className='text-xs'>9:00am a 6:00pm</p>
-                            <p className='text-xs'>222 248 8993</p>
+                    {/* Right side - Contact info, Search, Menu */}
+                    <div className="flex items-center gap-4">
+                        {/* Contact Info - Hidden on mobile */}
+                        <div className="hidden md:flex flex-col items-end pr-4 border-r border-gray-200">
+                            <p className="text-xs text-gray-500">Horario de atención</p>
+                            <p className="text-sm font-medium text-gray-700">9:00am - 6:00pm</p>
+                            <a href="tel:2222488993" className="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+                                <i className="bx bx-phone bx-sm"></i>
+                                222 248 8993
+                            </a>
                         </div>
 
-                        {/* These elements are visible on all screen sizes */}
-                        <div className='flex'>
-                            <button onClick={toggleSearchBar}>
-                                <MagnifyingGlassIcon className="w-7 h-7 mb-2 mr-6 mt-3 p-0 cursor-pointer" />
-                            </button>
+                        {/* Search Button */}
+                        <button
+                            onClick={toggleSearchBar}
+                            className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                            aria-label="Buscar"
+                        >
+                            <i className="bx bx-search bx-md text-gray-600"></i>
+                        </button>
 
-                            {/* Render search bar conditionally with transition */}
-                            <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showSearch ? 'max-w-xs' : 'max-w-0'} ml-0 mr-4 pt-5`}>
-                                <input type='text' className={`p-2 my-5npm border rounded-full focus:outline-none w-full opacity-0 transition-opacity duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`} placeholder='Buscar...' />
+                        {/* Animated Search Bar */}
+                        <div className={`
+                            absolute top-full left-0 right-0 bg-white border-t border-gray-100 shadow-lg
+                            overflow-hidden transition-all duration-300 ease-out
+                            ${showSearch ? 'max-h-20 py-3' : 'max-h-0 py-0'}
+                        `}>
+                            <div className="section-container">
+                                <div className="relative">
+                                    <i className="bx bx-search bx-sm absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                    <input
+                                        type="text"
+                                        className="input-field pl-12"
+                                        placeholder="¿Qué estás buscando?"
+                                    />
+                                </div>
                             </div>
                         </div>
 
-                        {/* Hamburger menu - visible on all screen sizes */}
-                        <button className='lg:hidden mr-6 pt-1' onClick={toggleMenu}>
-                            <Bars3Icon className='w-8 h-8' />
+                        {/* Mobile Menu Button */}
+                        <button
+                            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                            onClick={toggleMenu}
+                            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+                        >
+                            <i className={`bx ${isMenuOpen ? 'bx-x' : 'bx-menu'} bx-md text-gray-700`}></i>
                         </button>
                     </div>
-                </section>
+                </div>
             </div>
 
-            {/* Mobile Sliding Menu - shown when isMenuOpen is true */}
-            {isMenuOpen && (
-                <div className="fixed inset-0 bg-slate-400 bg-opacity-80 z-40"></div>
-            )}
-            <div className={`fixed top-0 left-0 lg:hidden h-full w-2/4 border-t-4 border-blue-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} transform transition-transform duration-300 ease-in-out bg-gray-100 z-50`}>
-                <div className='flex justify-center mt-6'>
-                    <button>
-                        <img src={logo} className="h-24 w-24 " alt="Logo" />
+            {/* Mobile Menu Overlay */}
+            <div
+                className={`
+                    fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden
+                    transition-opacity duration-300
+                    ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
+                `}
+                onClick={toggleMenu}
+            />
+
+            {/* Mobile Sliding Menu */}
+            <div className={`
+                fixed top-0 left-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 lg:hidden
+                transform transition-transform duration-300 ease-out
+                ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+            `}>
+                {/* Menu Header */}
+                <div className="flex items-center justify-between p-4 border-b border-gray-100">
+                    <img src={logo} className="h-12 w-12 object-contain" alt="Logo" />
+                    <button
+                        onClick={toggleMenu}
+                        className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                        aria-label="Cerrar menú"
+                    >
+                        <i className="bx bx-x bx-md text-gray-600"></i>
                     </button>
                 </div>
-                <div className='absolute top-0 right-0'>
-                    <button onClick={toggleMenu} className='p-2'>
-                        <XMarkIcon className="h-6 w-6" />
-                    </button>
-                </div>
-                <div className='my-4 mt-8 mx-4 border-t-2 border-blue-400'></div>
-                <ul className='flex flex-col items-center space-y-5 mt-9'>
-                    <li>
-                        <Link to='/' className="text-sky text-lg" onClick={() => { handleLinkClick('Inicio'); toggleMenu(); }}>
-                            Inicio
-                            {selectedLink === 'Inicio' && (
-                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                            )}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/servicios' className="text-sky text-lg" onClick={() => { handleLinkClick('Servicios'); toggleMenu(); }}>
-                            Servicios
-                            {selectedLink === 'Servicios' && (
-                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                            )}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/nosotros' className="text-sky text-lg" onClick={() => { handleLinkClick('Nosotros'); toggleMenu(); }}>
-                            Nosotros
-                            {selectedLink === 'Nosotros' && (
-                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                            )}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/pedido' className="text-sky text-lg" onClick={() => { handleLinkClick('Pedido'); toggleMenu(); }}>
-                            Haz tu pedido
-                            {selectedLink === 'Pedido' && (
-                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                            )}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/faq' className="text-sky text-lg" onClick={() => { handleLinkClick('Preguntas frecuentes'); toggleMenu(); }}>
-                            FAQ
-                            {selectedLink === 'Preguntas frecuentes' && (
-                                <span className="animate__animated animate__fadeIn border-b-2 border-blue-500 pb-1 block"></span>
-                            )}
-                        </Link>
-                    </li>
-                </ul>
-                <div className='my-4 mt-8 mx-4 border-t-2 border-blue-400'></div>
-                <p className='text-sm flex justify-center'>Siguenos en:</p>
-                <div className='flex justify-center space-x-4 m-5'>
-                    <a href='https://www.tiktok.com/@idmx.printhouse?_t=8nUzmUyoKur&_r=1' className='text-lg'>
-                        <img src={tiktok} className="w-7 h-7 hover:scale-105 hover:bg-fuchsia-400 rounded-full" />
-                    </a>
-                    <a href='https://www.instagram.com/impresosdiego?igsh=MXZpcnM1aTJoNTNpMQ==' className='text-lg'>
-                        <img src={instagram} className="w-7 h-7 hover:scale-105 hover:bg-rose-400 rounded-full" />
-                    </a>
-                    <a href='https://www.facebook.com/profile.php?id=61560933800832&mibextid=LQQJ4d' className='text-lg'>
-                        <img src={facebook} className="w-7 h-7 hover:scale-105 hover:bg-blue-400 rounded-full" />
+
+                {/* Menu Navigation */}
+                <nav className="p-4">
+                    <ul className="space-y-1">
+                        {navItems.map((item) => (
+                            <li key={item.key}>
+                                <Link
+                                    to={item.path}
+                                    className={`
+                                        flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium
+                                        transition-all duration-200
+                                        ${selectedLink === item.key
+                                            ? 'bg-blue-50 text-blue-600'
+                                            : 'text-gray-700 hover:bg-gray-50'}
+                                    `}
+                                    onClick={() => {
+                                        handleLinkClick(item.key);
+                                        toggleMenu();
+                                    }}
+                                >
+                                    {item.label}
+                                    {selectedLink === item.key && (
+                                        <i className="bx bx-check-circle bx-sm ml-auto text-blue-600"></i>
+                                    )}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+
+                {/* Menu Footer - Social Links */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100">
+                    <p className="text-sm text-gray-500 text-center mb-3">Síguenos en:</p>
+                    <div className="flex justify-center gap-4">
+                        <a
+                            href="https://www.tiktok.com/@idmx.printhouse"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-pink-100 hover:text-pink-500 transition-colors"
+                        >
+                            <i className="bxl bxl-tiktok bx-sm"></i>
+                        </a>
+                        <a
+                            href="https://www.instagram.com/impresosdiego"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-pink-500 hover:to-purple-600 hover:text-white transition-colors"
+                        >
+                            <i className="bxl bxl-instagram bx-sm"></i>
+                        </a>
+                        <a
+                            href="https://www.facebook.com/profile.php?id=61560933800832"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+                        >
+                            <i className="bxl bxl-facebook-circle bx-sm"></i>
+                        </a>
+                    </div>
+
+                    {/* Mobile Contact */}
+                    <a
+                        href="tel:2222488993"
+                        className="mt-4 flex items-center justify-center gap-2 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
+                    >
+                        <i className="bx bx-phone bx-sm"></i>
+                        Llamar: 222 248 8993
                     </a>
                 </div>
             </div>
         </header>
     );
-}
+};
+
+Header.propTypes = {
+    selectedLink: PropTypes.string,
+    handleLinkClick: PropTypes.func.isRequired,
+};
 
 export default Header;
