@@ -9,25 +9,25 @@ const acabadosItems = [
         icon: encuadernado,
         title: 'Encuadernados',
         description: 'Hot Melt / Grapa / Glueing en frío',
-        color: 'blue',
+        blurBg: 'bg-blue-100',
     },
     {
         icon: plastificado,
         title: 'Plastificado',
         description: 'Mate / Brillante',
-        color: 'purple',
+        blurBg: 'bg-purple-100',
     },
     {
         icon: barniz,
         title: 'Barniz',
         description: 'UV a registro y al 100%',
-        color: 'cyan',
+        blurBg: 'bg-cyan-100',
     },
     {
         icon: doblez,
         title: 'Doblez',
         description: 'Precisión en cada pliegue',
-        color: 'emerald',
+        blurBg: 'bg-emerald-100',
     },
 ];
 
@@ -56,11 +56,11 @@ function Acabados() {
                     {acabadosItems.map((item, index) => (
                         <div
                             key={index}
-                            className="card group p-6 text-center hover:shadow-xl"
+                            className="card group p-6 text-center hover:shadow-xl flex flex-col justify-center items-center min-h-[280px]"
                         >
                             {/* Icon Container */}
                             <div className="relative mb-6">
-                                <div className={`absolute inset-0 bg-${item.color}-100 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300`}></div>
+                                <div className={`absolute inset-0 ${item.blurBg} rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300`}></div>
                                 <div className="relative w-20 h-20 mx-auto bg-gray-100 rounded-2xl p-3 group-hover:scale-110 transition-transform duration-300">
                                     <img
                                         src={item.icon}

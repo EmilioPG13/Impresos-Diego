@@ -102,10 +102,10 @@ const IntroPage = ({ handleLinkClick }) => {
             <section className="section-container pb-12 lg:pb-20">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
                     {[
-                        { icon: 'bx-printer', label: 'Impresión Offset', value: 'Alta Calidad' },
-                        { icon: 'bx-time-five', label: 'Entrega', value: '5-7 días' },
-                        { icon: 'bx-map', label: 'Cobertura', value: 'Nacional' },
-                        { icon: 'bx-shield-quarter', label: 'Garantía', value: '100%' },
+                        { icon: 'bxs-printer', label: 'Impresión Offset', value: 'Alta Calidad' },
+                        { icon: 'bxs-truck', label: 'Entrega', value: '5-7 días' },
+                        { icon: 'bxs-map', label: 'Cobertura', value: 'Nacional' },
+                        { icon: 'bxs-shield-alt-2', label: 'Garantía', value: '100%' },
                     ].map((stat, index) => (
                         <div key={index} className="card p-4 lg:p-6 text-center">
                             <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-xl mb-3">

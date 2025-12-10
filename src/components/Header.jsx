@@ -69,11 +69,11 @@ const Header = ({ selectedLink, handleLinkClick }) => {
                     {/* Right side - Contact info, Search, Menu */}
                     <div className="flex items-center gap-4">
                         {/* Contact Info - Hidden on mobile */}
-                        <div className="hidden md:flex flex-col items-end pr-4 border-r border-gray-200">
-                            <p className="text-xs text-gray-500">Horario de atención</p>
-                            <p className="text-sm font-medium text-gray-700">9:00am - 6:00pm</p>
-                            <a href="tel:2222488993" className="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
-                                <i className="bx bx-phone bx-sm"></i>
+                        <div className="hidden md:flex flex-col items-end pr-3 border-r border-gray-200 text-right leading-tight">
+                            <p className="text-[10px] text-gray-400 uppercase tracking-wide">Horario</p>
+                            <p className="text-xs text-gray-600">9:00am - 6:00pm</p>
+                            <a href="tel:2222488993" className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-0.5">
+                                <i className="bx bx-phone text-sm"></i>
                                 222 248 8993
                             </a>
                         </div>

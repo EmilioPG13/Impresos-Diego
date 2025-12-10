@@ -9,17 +9,17 @@ function Nosotros() {
 
     const values = [
         {
-            icon: 'bx-check-shield',
+            icon: 'bxs-check-shield',
             title: 'Calidad',
             description: 'Nos comprometemos con la excelencia en cada proyecto que realizamos.',
         },
         {
-            icon: 'bx-time-five',
+            icon: 'bxs-timer',
             title: 'Puntualidad',
             description: 'Respetamos los tiempos de entrega acordados con nuestros clientes.',
         },
         {
-            icon: 'bx-cog',
+            icon: 'bxs-cog',
             title: 'Innovación',
             description: 'Utilizamos tecnología de punta en todos nuestros procesos.',
         },
