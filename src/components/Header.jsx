@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // Logo image
 import logo from '../images/icons/ID-logo.png';
 
-const Header = ({ selectedLink, handleLinkClick }) => {
+const Header = ({ handleLinkClick }) => {
     // States to manage search bar and hamburger menu
     const [showSearch, setShowSearch] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Get current location to highlight active nav item
+    const location = useLocation();
 
     // Function to toggle the search bar
     const toggleSearchBar = () => {
@@ -21,12 +24,20 @@ const Header = ({ selectedLink, handleLinkClick }) => {
 
     // Navigation items for DRY code
     const navItems = [
-        { path: '/', label: 'Inicio', key: 'Inicio' },
-        { path: '/servicios', label: 'Servicios', key: 'Servicios' },
-        { path: '/nosotros', label: 'Nosotros', key: 'Nosotros' },
-        { path: '/pedido', label: 'Haz tu pedido', key: 'Pedido' },
-        { path: '/faq', label: 'FAQ', key: 'Preguntas frecuentes' },
+        { path: '/', label: 'Inicio' },
+        { path: '/servicios', label: 'Servicios' },
+        { path: '/nosotros', label: 'Nosotros' },
+        { path: '/pedido', label: 'Haz tu pedido' },
+        { path: '/faq', label: 'FAQ' },
     ];
+
+    // Check if a nav item is active based on current path
+    const isActive = (path) => {
+        if (path === '/') {
+            return location.pathname === '/';
+        }
+        return location.pathname.startsWith(path);
+    };
 
     return (
         <header className="w-full sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm gradient-border-top">
@@ -52,11 +63,11 @@ const Header = ({ selectedLink, handleLinkClick }) => {
                         <nav className="hidden lg:flex ml-8 xl:ml-12">
                             <ul className="flex items-center gap-6 xl:gap-8">
                                 {navItems.map((item) => (
-                                    <li key={item.key}>
+                                    <li key={item.path}>
                                         <Link
                                             to={item.path}
-                                            className={`nav-link text-sm xl:text-base ${selectedLink === item.key ? 'text-blue-600 active' : ''}`}
-                                            onClick={() => handleLinkClick(item.key)}
+                                            className={`nav-link text-sm xl:text-base ${isActive(item.path) ? 'text-blue-600 active' : ''}`}
+                                            onClick={() => handleLinkClick(item.label)}
                                         >
                                             {item.label}
                                         </Link>
@@ -149,24 +160,26 @@ const Header = ({ selectedLink, handleLinkClick }) => {
                 <nav className="p-4">
                     <ul className="space-y-1">
                         {navItems.map((item) => (
-                            <li key={item.key}>
+                            <li key={item.path}>
                                 <Link
                                     to={item.path}
                                     className={`
                                         flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium
                                         transition-all duration-200
-                                        ${selectedLink === item.key
+                                        ${isActive(item.path)
                                             ? 'bg-blue-50 text-blue-600'
                                             : 'text-gray-700 hover:bg-gray-50'}
                                     `}
                                     onClick={() => {
-                                        handleLinkClick(item.key);
+                                        handleLinkClick(item.label);
                                         toggleMenu();
                                     }}
                                 >
                                     {item.label}
-                                    {selectedLink === item.key && (
-                                        <i className="bx bx-check-circle bx-sm ml-auto text-blue-600"></i>
+                                    {isActive(item.path) && (
+                                        <svg className="w-5 h-5 ml-auto text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                        </svg>
                                     )}
                                 </Link>
                             </li>
@@ -219,7 +232,6 @@ const Header = ({ selectedLink, handleLinkClick }) => {
 };
 
 Header.propTypes = {
-    selectedLink: PropTypes.string,
     handleLinkClick: PropTypes.func.isRequired,
 };
 
