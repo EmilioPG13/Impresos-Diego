@@ -93,10 +93,10 @@ const Header = ({ handleLinkClick }) => {
                         {/* Search Button */}
                         <button
                             onClick={toggleSearchBar}
-                            className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
                             aria-label="Buscar"
                         >
-                            <i className="bx bx-search bx-md text-gray-600"></i>
+                            <i className="bx bx-search text-xl text-gray-600"></i>
                         </button>
 
                         {/* Animated Search Bar */}
