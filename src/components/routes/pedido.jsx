@@ -13,6 +13,9 @@ function Pedido() {
         message: '',
         agreed: false,
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -20,13 +23,67 @@ function Pedido() {
             ...prev,
             [name]: type === 'checkbox' ? checked : value,
         }));
+        // Clear error when user starts typing
+        if (submitStatus === 'error') {
+            setSubmitStatus(null);
+            setErrorMessage('');
+        }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission
-        console.log('Form submitted:', formData);
-        alert('¡Gracias por tu solicitud! Te contactaremos pronto.');
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+        setErrorMessage('');
+
+        try {
+            const response = await fetch('/api/submit-lead', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    phone: formData.phone,
+                    company: formData.company,
+                    service: formData.service,
+                    quantity: formData.quantity,
+                    message: formData.message,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.details || data.error || 'Error al enviar la solicitud');
+            }
+
+            // Success!
+            setSubmitStatus('success');
+            setFormData({
+                firstName: '',
+                lastName: '',
+                phone: '',
+                company: '',
+                service: '',
+                quantity: '',
+                email: '',
+                message: '',
+                agreed: false,
+            });
+
+            // Scroll to top of form to show success message
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        } catch (error) {
+            console.error('Form submission error:', error);
+            setSubmitStatus('error');
+            setErrorMessage(error.message || 'Hubo un problema al enviar tu solicitud. Por favor intenta de nuevo.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const serviceOptions = [
@@ -56,6 +113,36 @@ function Pedido() {
                         Cuantos más datos y especificaciones proporciones, más acertado será el precio aproximado.
                     </p>
                 </header>
+
+                {/* Success Message */}
+                {submitStatus === 'success' && (
+                    <div className="mb-8 p-6 bg-green-50 border border-green-200 rounded-2xl animate-fade-in">
+                        <div className="flex items-center gap-4">
+                            <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i className="bx bx-check text-green-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold text-green-800">¡Solicitud enviada con éxito!</h3>
+                                <p className="text-green-700">Te contactaremos en un máximo de 72 horas con tu cotización.</p>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Error Message */}
+                {submitStatus === 'error' && (
+                    <div className="mb-8 p-6 bg-red-50 border border-red-200 rounded-2xl animate-fade-in">
+                        <div className="flex items-center gap-4">
+                            <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                                <i className="bx bx-error text-red-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold text-red-800">Error al enviar</h3>
+                                <p className="text-red-700">{errorMessage}</p>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {/* Form */}
                 <div className="card p-6 sm:p-8 lg:p-10 max-w-4xl">
@@ -243,9 +330,25 @@ function Pedido() {
                         </div>
 
                         {/* Submit */}
-                        <button type="submit" className="btn-primary w-full sm:w-auto">
-                            <i className="bx bx-send bx-sm mr-2"></i>
-                            Enviar solicitud
+                        <button
+                            type="submit"
+                            className="btn-primary w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? (
+                                <>
+                                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    Enviando...
+                                </>
+                            ) : (
+                                <>
+                                    <i className="bx bx-send bx-sm mr-2"></i>
+                                    Enviar solicitud
+                                </>
+                            )}
                         </button>
                     </form>
                 </div>
