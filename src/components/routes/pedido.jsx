@@ -288,22 +288,6 @@ function Pedido() {
                                 className="input-field resize-none"
                                 placeholder="Describe tu proyecto, especificaciones, medidas, acabados deseados, etc."
                             />
-                            <div className="flex items-center gap-3 mt-2">
-                                <button
-                                    type="button"
-                                    className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 transition-colors"
-                                >
-                                    <i className="bx bx-paperclip"></i>
-                                    Adjuntar archivo
-                                </button>
-                                <button
-                                    type="button"
-                                    className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 transition-colors"
-                                >
-                                    <i className="bx bx-image"></i>
-                                    Subir imagen
-                                </button>
-                            </div>
                         </div>
 
                         {/* Terms */}
