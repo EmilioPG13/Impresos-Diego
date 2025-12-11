@@ -310,8 +310,8 @@ html.dark body {
   /* gray-100 */
 }
 
-/* Header - distinct from content with border */
-html.dark header {
+/* Main navigation header - distinct from content with border */
+html.dark header.sticky {
   background-color: #0f172a !important;
   /* slate-900 - darker than content */
   border-bottom: 1px solid #374151 !important;
@@ -505,11 +505,9 @@ html.dark footer img[alt*="Logo"] {
   filter: brightness(1.5) contrast(1.1);
 }
 
-/* Experience badge - red-50 background */
+/* Experience badge - make background transparent to match parent */
 html.dark .bg-red-50 {
-  background-color: #450a0a !important;
-  /* dark red-950 */
-  border-color: #dc2626 !important;
+  background-color: transparent !important;
 }
 
 /* Blue badges/pills */
