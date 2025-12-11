@@ -8,6 +8,8 @@ import Pedido from './pedido';
 import Servicios from '../routes/servicios';
 import Nosotros from '../routes/nosotros';
 import FAQ from '../routes/faq';
+import Terminos from './terminos';
+import Privacidad from './privacidad';
 
 const AppRoutes = ({ handleLinkClick }) => {
     return (
@@ -24,12 +26,14 @@ const AppRoutes = ({ handleLinkClick }) => {
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/pedido" element={<Pedido />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/terminos" element={<Terminos />} />
+            <Route path="/privacidad" element={<Privacidad />} />
         </Routes>
     );
 };
 
 AppRoutes.propTypes = {
     handleLinkClick: PropTypes.func.isRequired,
-};  
+};
 
 export default AppRoutes;

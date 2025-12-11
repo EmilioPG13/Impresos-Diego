@@ -125,14 +125,14 @@ function Footer() {
                         </h3>
                         <ul className="space-y-3">
                             <li>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                <Link to="/privacidad" className="text-gray-400 hover:text-white transition-colors">
                                     Política de Privacidad
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                <Link to="/terminos" className="text-gray-400 hover:text-white transition-colors">
                                     Términos y Condiciones
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

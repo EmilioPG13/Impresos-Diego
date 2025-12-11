@@ -150,3 +150,139 @@
   .animation-delay-300 { animation-delay: 300ms; }
   .animation-delay-500 { animation-delay: 500ms; }
 }
+
+/* ============================================
+   Accessibility Styles
+   ============================================ */
+
+/* High Contrast Mode */
+html.high-contrast {
+  --tw-text-opacity: 1;
+}
+
+html.high-contrast body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+html.high-contrast .bg-stone-50,
+html.high-contrast .bg-white,
+html.high-contrast .bg-gray-50 {
+  background-color: #000 !important;
+}
+
+html.high-contrast .text-gray-600,
+html.high-contrast .text-gray-700,
+html.high-contrast .text-gray-500,
+html.high-contrast .text-gray-400 {
+  color: #fff !important;
+}
+
+html.high-contrast .text-gray-900,
+html.high-contrast .text-gray-800 {
+  color: #fff !important;
+}
+
+html.high-contrast .bg-gray-900 {
+  background-color: #1a1a1a !important;
+}
+
+html.high-contrast a,
+html.high-contrast button {
+  text-decoration: underline;
+}
+
+html.high-contrast .border-gray-100,
+html.high-contrast .border-gray-200,
+html.high-contrast .border-gray-300 {
+  border-color: #fff !important;
+}
+
+/* Large Text Mode */
+html.large-text {
+  font-size: 120%;
+}
+
+html.large-text .text-sm {
+  font-size: 1rem !important;
+}
+
+html.large-text .text-xs {
+  font-size: 0.875rem !important;
+}
+
+html.large-text .text-base {
+  font-size: 1.25rem !important;
+}
+
+html.large-text .text-lg {
+  font-size: 1.5rem !important;
+}
+
+html.large-text .text-xl {
+  font-size: 1.75rem !important;
+}
+
+html.large-text .text-2xl {
+  font-size: 2rem !important;
+}
+
+html.large-text .text-3xl {
+  font-size: 2.5rem !important;
+}
+
+/* Reduce Motion Mode */
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Visual Alerts Mode - Enhanced focus and interactive states */
+html.visual-alerts *:focus {
+  outline: 3px solid #fbbf24 !important;
+  outline-offset: 2px !important;
+}
+
+html.visual-alerts button:hover,
+html.visual-alerts a:hover {
+  outline: 2px dashed #3b82f6 !important;
+  outline-offset: 2px !important;
+}
+
+/* Visual notification flash animation for form submissions */
+@keyframes visual-alert-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; background-color: #fbbf24; }
+}
+
+html.visual-alerts .alert-flash {
+  animation: visual-alert-flash 0.5s ease-in-out 3;
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
