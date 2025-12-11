@@ -25,44 +25,25 @@
    Custom Component Styles
    ============================================ */
 @layer components {
+
   /* Primary Button */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 
-           text-sm font-semibold text-white 
-           bg-gradient-to-r from-blue-600 to-cyan-500 
-           rounded-lg shadow-lg shadow-blue-500/25
-           transition-all duration-300 ease-out
-           hover:shadow-xl hover:shadow-blue-500/40 hover:scale-105
-           focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-           active:scale-95;
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg shadow-lg shadow-blue-500/25 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-blue-500/40 hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95;
   }
 
   /* Secondary Button */
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 
-           text-sm font-semibold text-gray-700 
-           bg-white border border-gray-200
-           rounded-lg shadow-sm
-           transition-all duration-300 ease-out
-           hover:bg-gray-50 hover:border-gray-300 hover:shadow-md
-           focus:ring-2 focus:ring-gray-500 focus:ring-offset-2
-           active:scale-95;
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-lg shadow-sm transition-all duration-300 ease-out hover:bg-gray-50 hover:border-gray-300 hover:shadow-md focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 active:scale-95;
   }
 
   /* Card Component */
   .card {
-    @apply bg-white rounded-2xl shadow-lg 
-           border border-gray-100
-           transition-all duration-300 ease-out
-           hover:shadow-xl hover:-translate-y-1;
+    @apply bg-white rounded-2xl shadow-lg border border-gray-100 transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1;
   }
 
   /* Card with Glassmorphism */
   .card-glass {
-    @apply bg-white/80 backdrop-blur-xl rounded-2xl 
-           shadow-lg border border-white/20
-           transition-all duration-300 ease-out
-           hover:shadow-xl hover:-translate-y-1;
+    @apply bg-white/80 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1;
   }
 
   /* Section Container */
@@ -72,26 +53,21 @@
 
   /* Gradient Text */
   .text-gradient {
-    @apply bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 
-           bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 bg-clip-text text-transparent;
   }
 
   /* Section Header */
   .section-header {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
-           font-bold tracking-tight text-gray-900;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900;
   }
 
   /* Nav Link with Animated Underline */
   .nav-link {
-    @apply relative text-gray-700 font-medium 
-           transition-colors duration-200 hover:text-blue-600;
+    @apply relative text-gray-700 font-medium transition-colors duration-200 hover:text-blue-600;
   }
 
   .nav-link::after {
-    @apply absolute left-0 -bottom-1 w-0 h-0.5 
-           bg-gradient-to-r from-blue-600 to-cyan-500
-           transition-all duration-300;
+    @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 transition-all duration-300;
     content: '';
   }
 
@@ -102,26 +78,40 @@
 
   /* Input Styles */
   .input-field {
-    @apply w-full px-4 py-3 
-           bg-gray-50 border border-gray-200 rounded-xl
-           text-gray-900 placeholder-gray-400
-           transition-all duration-200
-           focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10;
+    @apply w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 transition-all duration-200 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10;
   }
 
   /* BoxIcons sizing utilities */
-  .bx-xs { font-size: 0.75rem; }
-  .bx-sm { font-size: 1rem; }
-  .bx-md { font-size: 1.25rem; }
-  .bx-lg { font-size: 1.5rem; }
-  .bx-xl { font-size: 2rem; }
-  .bx-2xl { font-size: 2.5rem; }
+  .bx-xs {
+    font-size: 0.75rem;
+  }
+
+  .bx-sm {
+    font-size: 1rem;
+  }
+
+  .bx-md {
+    font-size: 1.25rem;
+  }
+
+  .bx-lg {
+    font-size: 1.5rem;
+  }
+
+  .bx-xl {
+    font-size: 2rem;
+  }
+
+  .bx-2xl {
+    font-size: 2.5rem;
+  }
 }
 
 /* ============================================
    Custom Utility Styles
    ============================================ */
 @layer utilities {
+
   /* Gradient Backgrounds */
   .bg-gradient-primary {
     @apply bg-gradient-to-r from-blue-600 to-cyan-500;
@@ -146,9 +136,17 @@
   }
 
   /* Animation Delays */
-  .animation-delay-150 { animation-delay: 150ms; }
-  .animation-delay-300 { animation-delay: 300ms; }
-  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
 }
 
 /* ============================================
@@ -255,8 +253,16 @@ html.visual-alerts a:hover {
 
 /* Visual notification flash animation for form submissions */
 @keyframes visual-alert-flash {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; background-color: #fbbf24; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+    background-color: #fbbf24;
+  }
 }
 
 html.visual-alerts .alert-flash {
@@ -285,4 +291,323 @@ html.visual-alerts .alert-flash {
   overflow: visible;
   clip: auto;
   white-space: normal;
+}
+
+/* ============================================
+   Dark Mode Styles
+   ============================================ */
+
+/* Dark mode color scheme */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Base dark mode body */
+html.dark body {
+  background-color: #111827 !important;
+  /* gray-900 */
+  color: #f3f4f6 !important;
+  /* gray-100 */
+}
+
+/* Header - distinct from content with border */
+html.dark header {
+  background-color: #0f172a !important;
+  /* slate-900 - darker than content */
+  border-bottom: 1px solid #374151 !important;
+  /* gray-700 border */
+}
+
+/* Footer - darker shade for clear separation */
+html.dark footer {
+  background-color: #030712 !important;
+  /* gray-950 - darkest */
+  border-top: 1px solid #374151 !important;
+  /* gray-700 border */
+}
+
+/* Background color overrides */
+html.dark .bg-white,
+html.dark .bg-white\/95,
+html.dark .bg-white\/80,
+html.dark .bg-white\/70 {
+  background-color: #1f2937 !important;
+  /* gray-800 */
+}
+
+html.dark .bg-stone-50,
+html.dark .bg-gray-50 {
+  background-color: #111827 !important;
+  /* gray-900 */
+}
+
+html.dark .bg-gray-100 {
+  background-color: #1f2937 !important;
+  /* gray-800 */
+}
+
+/* Text color overrides for legibility */
+html.dark .text-gray-900 {
+  color: #f9fafb !important;
+  /* gray-50 */
+}
+
+html.dark .text-gray-800 {
+  color: #f3f4f6 !important;
+  /* gray-100 */
+}
+
+html.dark .text-gray-700 {
+  color: #e5e7eb !important;
+  /* gray-200 */
+}
+
+html.dark .text-gray-600 {
+  color: #9ca3af !important;
+  /* gray-400 - more muted for subtitle/description text */
+}
+
+html.dark .text-gray-500 {
+  color: #9ca3af !important;
+  /* gray-400 */
+}
+
+html.dark .text-gray-400 {
+  color: #9ca3af !important;
+  /* gray-400 */
+}
+
+/* Border color overrides */
+html.dark .border-gray-100,
+html.dark .border-gray-200 {
+  border-color: #374151 !important;
+  /* gray-700 */
+}
+
+html.dark .border-gray-300 {
+  border-color: #4b5563 !important;
+  /* gray-600 */
+}
+
+html.dark .border-white\/20 {
+  border-color: rgba(55, 65, 81, 0.5) !important;
+  /* gray-700 semi-transparent */
+}
+
+/* Card components */
+html.dark .card {
+  background-color: #1f2937 !important;
+  /* gray-800 */
+  border-color: #374151 !important;
+  /* gray-700 */
+}
+
+html.dark .card-glass {
+  background-color: rgba(31, 41, 55, 0.8) !important;
+  /* gray-800/80 */
+  border-color: rgba(55, 65, 81, 0.5) !important;
+}
+
+/* Buttons */
+html.dark .btn-secondary {
+  background-color: #374151 !important;
+  /* gray-700 */
+  color: #f3f4f6 !important;
+  /* gray-100 */
+  border-color: #4b5563 !important;
+  /* gray-600 */
+}
+
+html.dark .btn-secondary:hover {
+  background-color: #4b5563 !important;
+  /* gray-600 */
+}
+
+/* Input fields */
+html.dark .input-field {
+  background-color: #374151 !important;
+  /* gray-700 */
+  border-color: #4b5563 !important;
+  /* gray-600 */
+  color: #f3f4f6 !important;
+  /* gray-100 */
+}
+
+html.dark .input-field::placeholder {
+  color: #9ca3af !important;
+  /* gray-400 */
+}
+
+html.dark .input-field:focus {
+  background-color: #1f2937 !important;
+  /* gray-800 */
+  border-color: #3b82f6 !important;
+  /* blue-500 */
+}
+
+/* Navigation links */
+html.dark .nav-link {
+  color: #e5e7eb !important;
+  /* gray-200 */
+}
+
+html.dark .nav-link:hover {
+  color: #60a5fa !important;
+  /* blue-400 */
+}
+
+/* Hover states for buttons/interactive elements */
+html.dark .hover\:bg-gray-100:hover {
+  background-color: #374151 !important;
+  /* gray-700 */
+}
+
+html.dark .hover\:bg-gray-50:hover {
+  background-color: #374151 !important;
+  /* gray-700 */
+}
+
+/* Shadow adjustments */
+html.dark .shadow-sm,
+html.dark .shadow-lg,
+html.dark .shadow-xl {
+  --tw-shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Hero gradient background override */
+html.dark .bg-gradient-hero {
+  background: linear-gradient(to bottom right, #111827, #1f2937, #111827) !important;
+}
+
+/* Glass effect */
+html.dark .glass {
+  background-color: rgba(31, 41, 55, 0.7) !important;
+  border-color: rgba(55, 65, 81, 0.3) !important;
+}
+
+/* Focus ring adjustment */
+html.dark *:focus-visible {
+  --tw-ring-color: #60a5fa;
+  /* blue-400 */
+}
+
+/* ============================================
+   Dark Mode - Additional Fixes
+   ============================================ */
+
+/* Logo brightness boost for header (make dark logos visible) */
+html.dark header img[alt*="Logo"] {
+  filter: brightness(1.5) contrast(1.1);
+}
+
+/* Footer logo - match header brightness for legibility (keep white box) */
+html.dark footer img[alt*="Logo"] {
+  filter: brightness(1.5) contrast(1.1);
+}
+
+/* Experience badge - red-50 background */
+html.dark .bg-red-50 {
+  background-color: #450a0a !important;
+  /* dark red-950 */
+  border-color: #dc2626 !important;
+}
+
+/* Blue badges/pills */
+html.dark .bg-blue-100 {
+  background-color: #1e3a5f !important;
+  /* dark blue */
+  color: #93c5fd !important;
+  /* blue-300 */
+}
+
+html.dark .text-blue-700 {
+  color: #93c5fd !important;
+  /* blue-300 */
+}
+
+/* Purple badges */
+html.dark .bg-purple-100 {
+  background-color: #3b0764 !important;
+  /* dark purple */
+  color: #d8b4fe !important;
+  /* purple-300 */
+}
+
+html.dark .text-purple-700 {
+  color: #d8b4fe !important;
+  /* purple-300 */
+}
+
+/* Cyan badges */
+html.dark .bg-cyan-100 {
+  background-color: #164e63 !important;
+}
+
+/* Emerald badges */
+html.dark .bg-emerald-100 {
+  background-color: #064e3b !important;
+}
+
+/* Gray-100 icon containers - make icons visible */
+html.dark .bg-gray-100 {
+  background-color: #374151 !important;
+  /* gray-700 */
+}
+
+/* Acabados/service icons - invert dark icons for light appearance */
+html.dark .card img {
+  filter: invert(0.85) brightness(1.2);
+}
+
+/* Featured service card gradient override */
+html.dark .bg-gradient-to-br.from-gray-50,
+html.dark [class*="bg-gradient-to-br"][class*="from-gray-50"] {
+  background: linear-gradient(to bottom right, #1f2937, #111827) !important;
+}
+
+/* Explicitly handle from-gray-50 to-white gradient */
+html.dark .from-gray-50 {
+  --tw-gradient-from: #1f2937 !important;
+}
+
+html.dark .to-white {
+  --tw-gradient-to: #111827 !important;
+}
+
+/* FAQ accordion hover state */
+html.dark .hover\:bg-gray-50:hover {
+  background-color: #374151 !important;
+  /* gray-700 */
+}
+
+/* Preserve green button colors (WhatsApp) - don't override */
+html.dark .bg-green-600,
+html.dark .\!bg-green-600 {
+  background-color: #16a34a !important;
+  /* green-600 */
+}
+
+html.dark .hover\:\!bg-green-700:hover {
+  background-color: #15803d !important;
+  /* green-700 */
+}
+
+html.dark .\!text-white {
+  color: #ffffff !important;
+}
+
+html.dark .\!border-green-600 {
+  border-color: #16a34a !important;
+}
+
+/* Preserve original gradient buttons (primary) */
+html.dark .bg-gradient-to-r.from-green-500,
+html.dark .from-green-500 {
+  --tw-gradient-from: #22c55e !important;
+}
+
+/* Section header text in dark mode */
+html.dark .section-header {
+  color: #f9fafb !important;
+  /* gray-50 */
 }

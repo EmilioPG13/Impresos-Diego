@@ -1,6 +1,7 @@
 import plugin from 'tailwindcss/plugin';
 
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -78,7 +79,7 @@ export default {
     },
   },
   plugins: [
-    plugin(function({ addUtilities, theme }) {
+    plugin(function ({ addUtilities, theme }) {
       const newUtilities = {
         '.gradient-border-top': {
           position: 'relative',
