@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import MobileMenu from './MobileMenu';
 // Logo image
 import logo from '../images/icons/ID-logo.png';
 
@@ -127,106 +128,12 @@ const Header = ({ handleLinkClick }) => {
                     </div>
                 </div>
             </div>
-
-            {/* Mobile Menu Overlay */}
-            <div
-                className={`
-                    fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden
-                    transition-opacity duration-300
-                    ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
-                `}
-                onClick={toggleMenu}
+            {/* Mobile Menu Component */}
+            <MobileMenu
+                isOpen={isMenuOpen}
+                onClose={toggleMenu}
+                handleLinkClick={handleLinkClick}
             />
-
-            {/* Mobile Sliding Menu */}
-            <div className={`
-                fixed top-0 left-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 lg:hidden
-                transform transition-transform duration-300 ease-out
-                ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}
-            `}>
-                {/* Menu Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-100">
-                    <img src={logo} className="h-12 w-12 object-contain" alt="Logo" />
-                    <button
-                        onClick={toggleMenu}
-                        className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                        aria-label="Cerrar menú"
-                    >
-                        <i className="bx bx-x bx-md text-gray-600"></i>
-                    </button>
-                </div>
-
-                {/* Menu Navigation */}
-                <nav className="p-4">
-                    <ul className="space-y-1">
-                        {navItems.map((item) => (
-                            <li key={item.path}>
-                                <Link
-                                    to={item.path}
-                                    className={`
-                                        flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium
-                                        transition-all duration-200
-                                        ${isActive(item.path)
-                                            ? 'bg-blue-50 text-blue-600'
-                                            : 'text-gray-700 hover:bg-gray-50'}
-                                    `}
-                                    onClick={() => {
-                                        handleLinkClick(item.label);
-                                        toggleMenu();
-                                    }}
-                                >
-                                    {item.label}
-                                    {isActive(item.path) && (
-                                        <svg className="w-5 h-5 ml-auto text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                                        </svg>
-                                    )}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-
-                {/* Menu Footer - Social Links */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100">
-                    <p className="text-sm text-gray-500 text-center mb-3">Síguenos en:</p>
-                    <div className="flex justify-center gap-4">
-                        <a
-                            href="https://www.tiktok.com/@idmx.printhouse"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-pink-100 hover:text-pink-500 transition-colors"
-                        >
-                            <i className="bxl bxl-tiktok bx-sm"></i>
-                        </a>
-                        <a
-                            href="https://www.instagram.com/impresosdiego"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-pink-500 hover:to-purple-600 hover:text-white transition-colors"
-                        >
-                            <i className="bxl bxl-instagram bx-sm"></i>
-                        </a>
-                        <a
-                            href="https://www.facebook.com/profile.php?id=61560933800832"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
-                        >
-                            <i className="bxl bxl-facebook-circle bx-sm"></i>
-                        </a>
-                    </div>
-
-                    {/* Mobile Contact */}
-                    <a
-                        href="tel:2222488993"
-                        className="mt-4 flex items-center justify-center gap-2 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
-                    >
-                        <i className="bx bx-phone bx-sm"></i>
-                        Llamar: 222 248 8993
-                    </a>
-                </div>
-            </div>
         </header>
     );
 };
