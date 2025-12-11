@@ -80,7 +80,7 @@ const IntroPage = ({ handleLinkClick }) => {
                                 <div className="aspect-video rounded-xl overflow-hidden bg-gray-100">
                                     <iframe
                                         className="w-full h-full"
-                                        src="https://www.youtube.com/embed/aH_Jw_9sF10"
+                                        src="https://www.youtube.com/embed/6heOBw1sGHs"
                                         title="Impresos Diego - Video promocional"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
